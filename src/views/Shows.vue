@@ -5,7 +5,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import ShowService from '../services/shows.js'
 import ShowsComponent from '../components/ShowsComponent.vue'

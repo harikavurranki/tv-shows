@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Shows from '../views/Shows.vue'
-
+import ShowDetails from '../components/ShowDetailsComponent.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -9,6 +9,11 @@ const routes = [
     path: '/',
     name: 'Shows',
     component: Shows
+  },
+  {
+    path: '/showdetails',
+    name: ShowDetails,
+    component: ShowDetails
   },
   {
     path: '/about',
