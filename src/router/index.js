@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Shows from '../views/Shows.vue'
 import ShowDetails from '../components/ShowDetailsComponent.vue'
+import SearchResults from '../components/SearchResults.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
     path: '/showdetails',
     name: ShowDetails,
     component: ShowDetails
+  },
+  {
+    path: '/search',
+    name: SearchResults,
+    component: SearchResults
   },
   {
     path: '/about',

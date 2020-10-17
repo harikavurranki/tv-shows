@@ -1,9 +1,15 @@
 <template>
   <div id="app">
+    <HeaderComponent></HeaderComponent>
     <router-view/>
   </div>
 </template>
-
+<script>
+import HeaderComponent from './components/HeaderComponent.vue'
+export default {
+  components: { HeaderComponent }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

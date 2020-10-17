@@ -18,5 +18,11 @@ export default {
       return res
     })
     return response
+  },
+  getSearchResultsByQuery (query) {
+    const response = CommonService.getData('http://api.tvmaze.com/search/shows?q=' + query).then((res) => {
+      return res
+    })
+    return response
   }
 }
