@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="showslist">
     <div v-for="(eachShow, index) in Object.keys(showDetails)" :key="index">
       <ShowsComponent :eachShowDetails='showDetails[eachShow]' :showsLength="showDetails[eachShow].value.length"></ShowsComponent>
     </div>
@@ -19,20 +19,17 @@ export default {
   methods: {
     async getShowsList () {
       const showdata = await ShowService.getShowDetails()
-      this.sample = showdata.data
-      var datavalue = {}
+      var showsByGenre = {}
       for (let i = 0; i < showdata.data.length; i++) {
         for (let j = 0; j < showdata.data[i].genres.length; j++) {
-          if (datavalue[showdata.data[i].genres[j]]) {
-            var valuetwo = showdata.data[i].genres[j]
-            datavalue[valuetwo] = { label: valuetwo, value: [...datavalue[valuetwo].value, showdata.data[i]] }
+          if (showsByGenre[showdata.data[i].genres[j]]) {
+            showsByGenre[showdata.data[i].genres[j]] = { label: showdata.data[i].genres[j], value: [...showsByGenre[showdata.data[i].genres[j]].value, showdata.data[i]] }
           } else {
-            var valueone = showdata.data[i].genres[j]
-            datavalue[valueone] = { label: valueone, value: [showdata.data[i]] }
+            showsByGenre[showdata.data[i].genres[j]] = { label: showdata.data[i].genres[j], value: [showdata.data[i]] }
           }
         }
       }
-      this.showDetails = datavalue
+      this.showDetails = showsByGenre
     }
   },
   created () {
@@ -40,3 +37,8 @@ export default {
   }
 }
 </script>
+<style>
+  .showslist {
+    background: #0000ff1a;
+  }
+</style>
