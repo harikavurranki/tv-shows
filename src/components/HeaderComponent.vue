@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     getDatabySearch () {
+      this.$store.dispatch('getSearchResults', { query: this.query })
       this.$router.push({ path: '/search', query: { name: this.query } })
     }
   },
