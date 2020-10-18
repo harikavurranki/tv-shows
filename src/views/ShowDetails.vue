@@ -1,11 +1,11 @@
 <template>
   <div class="container pt50">
-    <div @click="redirect" class="textright"><span class="backtohome">Back to home</span></div>
+    <div @click="redirect" class="textright backshowdetails"><span class="backtohome">Back to home</span></div>
     <div class="row">
-      <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 col-lg-3">
         <img :src="$store.state.showData.image.medium">
       </div>
-      <div class="col-md-9 col-sm-6 col-xs-6 col-lg-9 textleft">
+      <div class="col-lg-9 col-md-8 col-sm-6 col-12 col-lg-9 textleft">
         <div class="shownamedata">{{$store.state.showData.name}}</div>
         <div v-html="$store.state.showData.summary" class="fs13"></div>
         <div class="fs14">
@@ -33,21 +33,21 @@
         </div> -->
     </div>
     <div class="row mt50">
-      <div class="col-md-9 col-sm-6 col-xs-6 episode">
+      <div class="col-md-9 col-sm-6 col-5 episode">
         Episodes
       </div>
-      <div class="col-md-3 col-sm-6 col-xs-6">
+      <div class="col-md-3 col-sm-6 col-7">
         <select class="form-control" @change="filterSeasonId(seasonId)" v-model="seasonId">
           <option v-for="(season, index) in showSeasonDetails" :key="index" :selected="season.number === 1" :value="'Season '+season.number">Season {{season.number}}</option>
         </select>
       </div>
     </div>
     <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
-      <div class="col-md-3 col-sm-3 col-xs-3">
+      <div class="col-md-3 col-sm-3 col-12">
         <img v-if="episode.image" :src="episode.image.medium">
         <span v-else>Image is not available</span>
       </div>
-      <div class="col-md-9 col-sm-9 col-xs-9">
+      <div class="col-md-9 col-sm-9 col-12">
         <div class="episodename">{{episode.name}}</div>
         <div v-html="episode.summary" class="episodesummary fs13"></div>
       </div>

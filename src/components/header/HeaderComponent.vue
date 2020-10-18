@@ -2,10 +2,10 @@
   <div class="headerbg pt5 pb5">
     <div class="container">
       <div class="row">
-        <div class="col-md-9 col-sm-9 col-6 headertitle">
+        <div class="col-lg-9 col-md-4 col-sm-6 col-12 headertitle fontbold">
           Shows Hub
         </div>
-        <div class="col-md-3 col-sm-3 col-3 textright search">
+        <div class="col-lg-3 col-md-8 col-sm-6 col-12 textright search">
           <input v-model="query" placeholder="Search shows"  @keyup.enter="getDatabySearch">
         </div>
       </div>

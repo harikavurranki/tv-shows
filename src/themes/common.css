@@ -135,11 +135,28 @@
 .footerclass {
   font-size: 15px;
 }
+.fontbold {
+	font-weight: bold;
+}
 @media (min-width: 320px) and (max-width: 575px) {
 	.headertitle, .search {
+		text-align: center !important;
+	}
+	.rightcarousel{
+    right: -14px !important;
+    display: none !important;
+	}
+	.leftcarousel {
+		left: -14px !important;
+		display: none !important;
+	}
+	.shownamedata {
 		text-align: center;
 	}
-	.rightcarousel, .leftcarousel {
-    right: -14px !important;
+	.backshowdetails {
+		margin-bottom: 20px;
+	}
+	.episode {
+    font-size: 20px !important;
 	}
 }

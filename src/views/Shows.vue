@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pt30">
     <div v-for="(eachShow, index) in Object.keys($store.state.showDetails)" :key="index">
       <ShowsComponent :eachShowDetails='$store.state.showDetails[eachShow]' :showsLength="$store.state.showDetails[eachShow].value.length"></ShowsComponent>
     </div>
