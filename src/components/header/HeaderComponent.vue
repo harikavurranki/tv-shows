@@ -31,22 +31,10 @@ export default {
 }
 </script>
 <style>
-  .headerbg {
-    background: #e6ae06;
-  }
-  .pt5 {
-    padding-top: 5px;
-  }
-  .pb5 {
-    padding-bottom: 5px
-  }
   .headertitle {
     text-align: left;
     font-style: italic;
     padding-top: 3px;
-  }
-  .textright {
-    text-align: right;
   }
   ::placeholder {
     font-size: 12px;

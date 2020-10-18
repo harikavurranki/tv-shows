@@ -1,29 +1,28 @@
 <template>
-  <div class="bg">
-    <div class="container pt50">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
-          <img :src="$store.state.showData.image.medium">
+  <div class="container pt50">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+        <img :src="$store.state.showData.image.medium">
+      </div>
+      <div class="col-md-9 col-sm-6 col-xs-6 col-lg-9 textleft">
+        <div class="shownamedata">{{$store.state.showData.name}}</div>
+        <div v-html="$store.state.showData.summary" class="fs13"></div>
+        <div class="fs14">
+          <span class="showlabel">Genres:</span>
+          <span v-for="(genre, index) in $store.state.showData.genres" :key="index">
+            {{genre}}
+            <span v-if="index !== $store.state.showData.genres.length-1">|</span>
+          </span>
         </div>
-        <div class="col-md-9 col-sm-6 col-xs-6 col-lg-9 textleft">
-          <div class="showname">{{$store.state.showData.name}}</div>
-          <div v-html="$store.state.showData.summary" class="fs13"></div>
-          <div class="fs14">
-            <span class="showlabel">Genres:</span>
-            <span v-for="(genre, index) in $store.state.showData.genres" :key="index">
-              {{genre}}
-              <span v-if="index !== $store.state.showData.genres.length-1">|</span>
-            </span>
-          </div>
-          <div class="fs14">
-            <span class="showlabel">Language:</span>
-            {{$store.state.showData.language}}
-          </div>
-          <div class="fs14">
-            <span class="showlabel">Rating:</span>
-            {{$store.state.showData.rating.average}}
-          </div>
+        <div class="fs14">
+          <span class="showlabel">Language:</span>
+          {{$store.state.showData.language}}
         </div>
+        <div class="fs14">
+          <span class="showlabel">Rating:</span>
+          {{$store.state.showData.rating.average}}
+        </div>
+      </div>
         <!-- <div class="col-md-3 col-sm-6 col-xs-6 col-lg-4">
           <div v-for="(cast, index) in showCast" :key="index">
             <img :src="cast.person.image.medium">
@@ -31,26 +30,25 @@
             <div>{{cast.character.name}}</div>
           </div>
         </div> -->
+    </div>
+    <div class="row mt50">
+      <div class="col-md-9 col-sm-6 col-xs-6 episode">
+        Episodes
       </div>
-      <div class="row mt50">
-        <div class="col-md-9 col-sm-6 col-xs-6 episode">
-          Episodes
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-          <select class="form-control" @change="filterSeasonId(seasonId)" v-model="seasonId">
-            <option v-for="(season, index) in showSeasonDetails" :key="index" :selected="season.number === 1" :value="'Season '+season.number">Season {{season.number}}</option>
-          </select>
-        </div>
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <select class="form-control" @change="filterSeasonId(seasonId)" v-model="seasonId">
+          <option v-for="(season, index) in showSeasonDetails" :key="index" :selected="season.number === 1" :value="'Season '+season.number">Season {{season.number}}</option>
+        </select>
       </div>
-      <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
-        <div class="col-md-3 col-sm-3 col-xs-3">
-          <img v-if="episode.image" :src="episode.image.medium">
-          <span v-else>Image is not available</span>
-        </div>
-        <div class="col-md-9 col-sm-9 col-xs-9">
-          <div class="episodename">{{episode.name}}</div>
-          <div v-html="episode.summary" class="episodesummary fs13"></div>
-        </div>
+    </div>
+    <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <img v-if="episode.image" :src="episode.image.medium">
+        <span v-else>Image is not available</span>
+      </div>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <div class="episodename">{{episode.name}}</div>
+        <div v-html="episode.summary" class="episodesummary fs13"></div>
       </div>
     </div>
   </div>
@@ -86,7 +84,6 @@ export default {
     async getShowCast (showId) {
       const showCast = await ShowService.getShowCastDetails(showId)
       this.showCast = showCast.data
-      console.log(showCast)
     }
   },
   created () {
@@ -96,50 +93,4 @@ export default {
 }
 </script>
 <style>
-  .episode {
-    text-align: left;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  .eachepisode {
-    border-bottom: 1px solid #80808047;
-    margin-top: 30px;
-  }
-  .eachepisode img {
-    margin-bottom: 30px;
-  }
-  .episodename {
-    text-align: left;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .episodesummary {
-    text-align: left;
-  }
-  .fs13 {
-    font-size: 13px;
-  }
-  .mt50 {
-    margin-top: 50px;
-  }
-  .pt50 {
-    padding-top: 50px;
-  }
-  .textleft {
-    text-align: left;
-  }
-  .showname {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .showlabel {
-    color: #0c53ab;
-    font-weight: bold;
-  }
-  .fs14 {
-    font-size: 14px;
-  }
-  .bg {
-    background: #0000ff1a;
-  }
 </style>

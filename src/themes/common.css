@@ -1,0 +1,137 @@
+.textleft {
+  text-align: left;
+}
+.pt30 {
+  padding-top: 30px;
+}
+.star {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .9em;
+  margin-right: .9em;
+  margin-bottom: 1.2em;
+  border-right:  .3em solid transparent;
+  border-bottom: .7em  solid #FC0;
+  border-left:   .3em solid transparent;
+  /* Controlls the size of the stars. */
+  font-size: 6px;
+}
+.star:before, .star:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: .6em;
+  left: -1em;
+  border-right:  1em solid transparent;
+  border-bottom: .7em  solid #FC0;
+  border-left:   1em solid transparent;
+  transform: rotate(-35deg);
+}
+.star:after {
+  transform: rotate(35deg);
+}
+.fs12 {
+  font-size: 12px;
+}
+.bg {
+  background: #0000ff1a;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.backtohome {
+  color: #007bff;
+  border-bottom: 1px solid #007bff;
+  cursor: pointer;
+}
+.genrename {
+  border-bottom: 3px solid #1834f7;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+.showimageheight {
+  height: 200px !important;
+  width: 100%;
+  cursor: pointer;
+}
+.showname {
+  font-size: 15px;
+  margin-top: 10px;
+}
+.shownamedata {
+  font-size: 18px;
+  font-weight: bold;
+}
+.textright {
+  text-align: right;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.mb30 {
+  margin-bottom: 30px;
+}
+.episode {
+  text-align: left;
+  font-weight: bold;
+  font-size: 30px;
+}
+.eachepisode {
+  border-bottom: 1px solid #80808047;
+  margin-top: 30px;
+}
+.eachepisode img {
+  margin-bottom: 30px;
+}
+.episodename {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+.episodesummary {
+  text-align: left;
+}
+.fs13 {
+  font-size: 13px;
+}
+.mt50 {
+  margin-top: 50px;
+}
+.pt50 {
+  padding-top: 50px;
+}
+.showlabel {
+  color: #0c53ab;
+  font-weight: bold;
+}
+.fs14 {
+  font-size: 14px;
+}
+.oops {
+  font-size: 30px;
+  height: 30%;
+  margin-top: 19%;
+  margin-bottom: 20%;
+}
+.pt5 {
+  padding-top: 5px;
+}
+.pb5 {
+  padding-bottom: 5px
+}
+.headerbg {
+  background: #e6ae06;
+}
+.pt3 {
+  padding-top: 3px;
+}
+.pb3 {
+  padding-bottom: 3px
+}
+.footerclass {
+  font-size: 15px;
+}

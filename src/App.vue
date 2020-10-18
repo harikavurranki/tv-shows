@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <HeaderComponent></HeaderComponent>
-    <router-view/>
+    <div class="bg">
+      <router-view/>
+    </div>
     <FooterComponent></FooterComponent>
   </div>
 </template>

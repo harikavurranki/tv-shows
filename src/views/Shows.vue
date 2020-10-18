@@ -1,5 +1,5 @@
 <template>
-  <div class="showslist">
+  <div>
     <div v-for="(eachShow, index) in Object.keys($store.state.showDetails)" :key="index">
       <ShowsComponent :eachShowDetails='$store.state.showDetails[eachShow]' :showsLength="$store.state.showDetails[eachShow].value.length"></ShowsComponent>
     </div>
@@ -37,7 +37,4 @@ export default {
 }
 </script>
 <style>
-  .showslist {
-    background: #0000ff1a;
-  }
 </style>
