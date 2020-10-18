@@ -135,3 +135,11 @@
 .footerclass {
   font-size: 15px;
 }
+@media (min-width: 320px) and (max-width: 575px) {
+	.headertitle, .search {
+		text-align: center;
+	}
+	.rightcarousel, .leftcarousel {
+    right: -14px !important;
+	}
+}

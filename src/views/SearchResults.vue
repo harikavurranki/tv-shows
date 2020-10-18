@@ -15,7 +15,7 @@
       <div v-for="(search, index) in $store.state.searchResults" :key="index" class="col-md-2 col-sm-3 col-xs-3 mt20">
         <img :src="search.show.image.medium" v-if="search.show.image" class="showimageheight">
         <div class="showname">{{search.show.name}}</div>
-        <div v-if="search.show.rating"><i class="star"></i><span class="fs12">{{search.show.rating.average}}</span></div>
+        <div v-if="search.show.rating.average"><i class="star"></i><span class="fs12">{{search.show.rating.average}}</span></div>
       </div>
     </div>
   </div>

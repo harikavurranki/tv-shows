@@ -1,5 +1,6 @@
 <template>
   <div class="container pt50">
+    <div @click="redirect" class="textright"><span class="backtohome">Back to home</span></div>
     <div class="row">
       <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
         <img :src="$store.state.showData.image.medium">
@@ -66,6 +67,9 @@ export default {
     }
   },
   methods: {
+    redirect () {
+      this.$router.push('/')
+    },
     async getSeasonDetails (showId) {
       const seasonData = await ShowService.getShowSeasons(showId)
       this.showSeasonDetails = seasonData.data

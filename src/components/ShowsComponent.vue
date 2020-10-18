@@ -8,7 +8,7 @@
       <div class="carousel-inner">
         <div v-for="(eachGenre, index) in 5" :key="index" :class="eachGenre>1?'carousel-item mb30': 'carousel-item mb30 active'">
           <div class="row">
-            <div class="col-md-2 col-sm-6 col-xs-12" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
+            <div class="col-md-2 col-sm-6 col-xs-6" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
               <img :src="show.image.medium" class="showimageheight">
               <div class="showname">{{show.name}}</div>
               <div><i class="star"></i><span class="fs12">{{show.rating.average}}</span></div>
