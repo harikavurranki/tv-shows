@@ -5,12 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    showData: '',
-    searchResults: []
+    showData: {},
+    searchResults: [],
+    showDetails: [],
+    showName: ''
   },
   mutations: {
     SET_SEARCHRESULTS (state, data) {
       state.searchResults = data
+    },
+    SET_SHOWDETAILS (state, data) {
+      state.showDetails = data
+    },
+    SET_SHOWDATA (state, data) {
+      state.showData = data
+    },
+    SET_SHOWNAME (state, data) {
+      state.showName = data
     }
   },
   actions: {

@@ -1,7 +1,7 @@
 <template>
   <div class="showslist">
-    <div v-for="(eachShow, index) in Object.keys(showDetails)" :key="index">
-      <ShowsComponent :eachShowDetails='showDetails[eachShow]' :showsLength="showDetails[eachShow].value.length"></ShowsComponent>
+    <div v-for="(eachShow, index) in Object.keys($store.state.showDetails)" :key="index">
+      <ShowsComponent :eachShowDetails='$store.state.showDetails[eachShow]' :showsLength="$store.state.showDetails[eachShow].value.length"></ShowsComponent>
     </div>
   </div>
 </template>
@@ -13,7 +13,6 @@ export default {
   components: { ShowsComponent },
   data () {
     return {
-      showDetails: {}
     }
   },
   methods: {
@@ -29,7 +28,7 @@ export default {
           }
         }
       }
-      this.showDetails = showsByGenre
+      this.$store.commit('SET_SHOWDETAILS', showsByGenre)
     }
   },
   created () {

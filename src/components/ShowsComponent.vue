@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-sm-3 col-xs-3 textleft mt20 mb20"><span class="genrename">{{eachShowDetails.label}}</span></div>
-      <div class="col-md-6 col-sm-3 col-xs-3 textright mt20 mb20" v-if="eachShowDetails.value.length>5">Explore More</div>
+      <div class="col-md-6 col-sm-3 col-xs-3 textright mt20 mb20" v-if="eachShowDetails.value.length>5" @click="allShows">Explore More</div>
     </div>
     <div :id="eachShowDetails.label" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -37,8 +37,12 @@ export default {
   },
   methods: {
     getShowId (show) {
-      this.$store.state.showData = show
+      this.$store.commit('SET_SHOWDATA', show)
       this.$router.push('/showdetails')
+    },
+    allShows () {
+      this.$store.commit('SET_SHOWNAME', this.eachShowDetails.label)
+      this.$router.push('/allshows')
     }
   },
   created () {
