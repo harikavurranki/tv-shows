@@ -7,8 +7,8 @@ export default {
     })
     return response
   },
-  getShowSeasons () {
-    const response = CommonService.getData('http://api.tvmaze.com/shows/3/seasons').then((res) => {
+  getShowSeasons (showId) {
+    const response = CommonService.getData('http://api.tvmaze.com/shows/' + showId + '/seasons').then((res) => {
       return res
     })
     return response
@@ -21,6 +21,12 @@ export default {
   },
   getSearchResultsByQuery (query) {
     const response = CommonService.getData('http://api.tvmaze.com/search/shows?q=' + query).then((res) => {
+      return res
+    })
+    return response
+  },
+  getShowCastDetails (showId) {
+    const response = CommonService.getData('http://api.tvmaze.com/shows/' + showId + '/cast').then((res) => {
       return res
     })
     return response

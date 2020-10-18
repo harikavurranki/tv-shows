@@ -1,45 +1,56 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-        <img :src="$store.state.showData.image.medium">
+  <div class="bg">
+    <div class="container pt50">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-6 col-lg-3">
+          <img :src="$store.state.showData.image.medium">
+        </div>
+        <div class="col-md-9 col-sm-6 col-xs-6 col-lg-9 textleft">
+          <div class="showname">{{$store.state.showData.name}}</div>
+          <div v-html="$store.state.showData.summary" class="fs13"></div>
+          <div class="fs14">
+            <span class="showlabel">Genres:</span>
+            <span v-for="(genre, index) in $store.state.showData.genres" :key="index">
+              {{genre}}
+              <span v-if="index !== $store.state.showData.genres.length-1">|</span>
+            </span>
+          </div>
+          <div class="fs14">
+            <span class="showlabel">Language:</span>
+            {{$store.state.showData.language}}
+          </div>
+          <div class="fs14">
+            <span class="showlabel">Rating:</span>
+            {{$store.state.showData.rating.average}}
+          </div>
+        </div>
+        <!-- <div class="col-md-3 col-sm-6 col-xs-6 col-lg-4">
+          <div v-for="(cast, index) in showCast" :key="index">
+            <img :src="cast.person.image.medium">
+            <div>{{cast.person.name}}</div>
+            <div>{{cast.character.name}}</div>
+          </div>
+        </div> -->
       </div>
-      <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-        <div>{{$store.state.showData.name}}</div>
-        <div>{{$store.state.showData.language}}</div>
-        <div>{{$store.state.showData.genres}}</div>
-        <div> <span class="glyphicon glyphicon-star"></span>{{$store.state.showData.rating.average}}</div>
-        <div>{{$store.state.showData.summary}}</div>
-        <div>{{$store.state.showData.id}}</div>
+      <div class="row mt50">
+        <div class="col-md-9 col-sm-6 col-xs-6 episode">
+          Episodes
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <select class="form-control" @change="filterSeasonId(seasonId)" v-model="seasonId">
+            <option v-for="(season, index) in showSeasonDetails" :key="index" :selected="season.number === 1" :value="'Season '+season.number">Season {{season.number}}</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-9 col-sm-6 col-xs-6 episode">
-        Episodes
-      </div>
-      <div class="col-md-3 col-sm-6 col-xs-6">
-       <!--  v-model="$store.state.dogBreedName" @change="searchDogBreed()"
-        selectbreed -->
-        <select class="form-control" @change="filterSeasonId(seasonId)" v-model="seasonId">
-          <option v-for="(season, index) in showSeasonDetails" :key="index" :selected="season.number === 1" :value="'Season '+season.number">Season {{season.number}}</option>
-        </select>
-       <!--  <b-tabs content-class="mt-3">
-          <b-tab v-for="(season, index) in showSeasonDetails" :key="index" :title="'Season' + season.number" :active="season.number === 1" @click="getEpisodesData(season)">
-            <div v-for="(episode, index) in seasonEpisodeDetails" :key="index">
-              <img :src="episode.image.medium">
-              <div>{{episode.name}}</div>
-            </div>
-          </b-tab>
-        </b-tabs> -->
-      </div>
-    </div>
-    <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
-      <div class="col-md-3 col-sm-3 col-xs-3">
-        <img :src="episode.image.medium">
-      </div>
-      <div class="col-md-9 col-sm-9 col-xs-9">
-        <div class="episodename">{{episode.name}}</div>
-        <div v-html="episode.summary"></div>
+      <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+          <img v-if="episode.image" :src="episode.image.medium">
+          <span v-else>Image is not available</span>
+        </div>
+        <div class="col-md-9 col-sm-9 col-xs-9">
+          <div class="episodename">{{episode.name}}</div>
+          <div v-html="episode.summary" class="episodesummary fs13"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -52,12 +63,13 @@ export default {
     return {
       showSeasonDetails: [],
       seasonEpisodeDetails: [],
-      seasonId: null
+      seasonId: null,
+      showCast: []
     }
   },
   methods: {
-    async getSeasonDetails () {
-      const seasonData = await ShowService.getShowSeasons()
+    async getSeasonDetails (showId) {
+      const seasonData = await ShowService.getShowSeasons(showId)
       this.showSeasonDetails = seasonData.data
       this.filterSeasonId('Season ' + this.showSeasonDetails[0].number)
     },
@@ -70,10 +82,16 @@ export default {
     async getEpisodesData (seasonNumber) {
       const episodeData = await ShowService.getEpisodesDataBySeasonId(seasonNumber)
       this.seasonEpisodeDetails = episodeData.data
+    },
+    async getShowCast (showId) {
+      const showCast = await ShowService.getShowCastDetails(showId)
+      this.showCast = showCast.data
+      console.log(showCast)
     }
   },
   created () {
-    this.getSeasonDetails()
+    this.getSeasonDetails(this.$store.state.showData.id)
+    this.getShowCast(this.$store.state.showData.id)
   }
 }
 </script>
@@ -94,5 +112,34 @@ export default {
     text-align: left;
     font-size: 20px;
     font-weight: bold;
+  }
+  .episodesummary {
+    text-align: left;
+  }
+  .fs13 {
+    font-size: 13px;
+  }
+  .mt50 {
+    margin-top: 50px;
+  }
+  .pt50 {
+    padding-top: 50px;
+  }
+  .textleft {
+    text-align: left;
+  }
+  .showname {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .showlabel {
+    color: #0c53ab;
+    font-weight: bold;
+  }
+  .fs14 {
+    font-size: 14px;
+  }
+  .bg {
+    background: #0000ff1a;
   }
 </style>
