@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-sm-3 col-xs-3 textleft mt20 mb20"><span class="genrename">{{eachShowDetails.label}}</span></div>
-      <div class="col-md-6 col-sm-3 col-xs-3 textright mt20 mb20" v-if="eachShowDetails.value.length>5" @click="allShows">Explore More</div>
+      <div class="col-md-6 col-sm-3 col-xs-3 textright mt20 mb20" v-if="eachShowDetails.value.length>5" @click="allShows"><span class="explore">Explore More</span></div>
     </div>
     <div :id="eachShowDetails.label" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -128,5 +128,10 @@ export default {
   }
   .fs12 {
     font-size: 12px;
+  }
+  .explore {
+    color: #007bff;
+    border-bottom: 1px solid #007bff;
+    cursor: pointer;
   }
 </style>

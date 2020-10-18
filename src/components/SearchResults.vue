@@ -9,14 +9,14 @@
           <div @click="redirect"><span class="backtohome">Back to home</span></div>
         </div>
       </div>
+      <div v-if="$store.state.searchResults.length === 0" class="oops">
+        OOPS details not found for <span class="backtohome">{{$route.query.name}}</span>. Please click on <span class="backtohome" @click="redirect">Home</span>
+      </div>
       <div class="row">
-        <div v-if="$store.state.searchResults.length === 0">
-          No results
-        </div>
-        <div v-else v-for="(show, index) in $store.state.showDetails[$store.state.showName].value" :key="index" class="col-md-2 col-sm-3 col-xs-3 mt20">
-          <img :src="show.image.medium" v-if="show.image" class="showimageheight">
-          <div class="showname">{{show.name}}</div>
-          <div><i class="star"></i><span class="fs12">{{show.rating.average}}</span></div>
+        <div v-for="(search, index) in $store.state.searchResults" :key="index" class="col-md-2 col-sm-3 col-xs-3 mt20">
+          <img :src="search.show.image.medium" v-if="search.show.image" class="showimageheight">
+          <div class="showname">{{search.show.name}}</div>
+          <div><i class="star"></i><span class="fs12">{{search.show.rating.average}}</span></div>
         </div>
       </div>
     </div>
@@ -102,5 +102,11 @@ export default {
   }
   .pt30 {
     padding-top: 30px;
+  }
+  .oops {
+    font-size: 30px;
+    height: 30%;
+    margin-top: 19%;
+    margin-bottom: 20%;
   }
 </style>
