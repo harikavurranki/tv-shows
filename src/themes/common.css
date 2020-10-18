@@ -159,4 +159,12 @@
 	.episode {
     font-size: 20px !important;
 	}
+	.episodeimagecenter {
+		text-align: center;
+	}
+}
+@media (min-width: 576px) and (max-width: 767px) {
+	.episodeimage {
+		width: 108% !important;
+	}
 }

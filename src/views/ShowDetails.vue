@@ -43,11 +43,11 @@
       </div>
     </div>
     <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
-      <div class="col-md-3 col-sm-3 col-12">
-        <img v-if="episode.image" :src="episode.image.medium">
+      <div class="col-lg-4 col-md-6 col-sm-4 col-12 textleft episodeimagecenter">
+        <img v-if="episode.image" :src="episode.image.medium" class="episodeimage">
         <span v-else>Image is not available</span>
       </div>
-      <div class="col-md-9 col-sm-9 col-12">
+      <div class="col-lg-8 col-md-6 col-sm-8 col-12">
         <div class="episodename">{{episode.name}}</div>
         <div v-html="episode.summary" class="episodesummary fs13"></div>
       </div>
