@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Shows from '../views/Shows.vue'
-import ShowDetails from '../components/ShowDetailsComponent.vue'
-import SearchResults from '../components/SearchResults.vue'
+import ShowDetails from '../views/ShowDetails.vue'
+import SearchResults from '../views/SearchResults.vue'
 import ShowsList from '../components/ShowsListComponent'
 Vue.use(VueRouter)
 
