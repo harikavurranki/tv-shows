@@ -59,8 +59,11 @@
   cursor: pointer;
 }
 .showname {
-  font-size: 15px;
+  font-size: 13px;
   margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .shownamedata {
   font-size: 18px;
@@ -137,6 +140,9 @@
 }
 .fontbold {
 	font-weight: bold;
+}
+.heigth200 {
+	height: 200px;
 }
 @media (min-width: 320px) and (max-width: 575px) {
 	.headertitle, .search {

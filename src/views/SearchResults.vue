@@ -13,9 +13,13 @@
     </div>
     <div class="row">
       <div v-for="(search, index) in searchResults" :key="index" class="col-md-2 col-sm-3 col-6 mt20">
-        <img :src="search.show.image.medium" v-if="search.show.image" class="showimageheight">
-        <div class="showname">{{search.show.name}}</div>
-        <div v-if="search.show.rating.average"><i class="star"></i><span class="fs12">{{search.show.rating.average}}</span></div>
+        <div :class="!search.show.image?'heigth200':''"><img :src="search.show.image?search.show.image.medium:''" class="showimageheight" alt="Image is not available"></div>
+        <div class="showname" :title="search.show.name.length>19?search.show.name:''">{{search.show.name}}</div>
+        <div class="fs12">
+          <i class="star"></i>
+          <span v-if="search.show.rating.average">{{search.show.rating.average}}</span>
+          <span v-else>N/A</span>
+        </div>
       </div>
     </div>
   </div>

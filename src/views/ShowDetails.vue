@@ -44,8 +44,9 @@
     </div>
     <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
       <div class="col-lg-4 col-md-6 col-sm-4 col-12 textleft episodeimagecenter">
-        <img v-if="episode.image" :src="episode.image.medium" class="episodeimage">
-        <span v-else>Image is not available</span>
+        <!-- <div :class="!episode.image?'heigth200':''"> -->
+          <img :src="episode.image?episode.image.medium:''" class="episodeimage" alt="Image is not available">
+        <!-- </div> -->
       </div>
       <div class="col-lg-8 col-md-6 col-sm-8 col-12">
         <div class="episodename">{{episode.name}}</div>

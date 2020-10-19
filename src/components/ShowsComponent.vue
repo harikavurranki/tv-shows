@@ -10,9 +10,15 @@
           <div class="row">
             <div class="col-lg-2 col-md
             eachShowDetails.value.lengththis.-2 col-sm-4 col-6 mb20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
-              <img :src="show.image.medium" class="showimageheight">
-              <div class="showname">{{show.name}}</div>
-              <div><i class="star"></i><span class="fs12">{{show.rating.average}}</span></div>
+              <div :class="!show.image?'heigth200':''">
+                <img :src="show.image?show.image.medium:''" class="showimageheight" alt="Image is not available">
+              </div>
+              <div class="showname" :title="show.name.length>19?show.name:''">{{show.name}}</div>
+              <div class="fs12">
+                <i class="star"></i>
+                <span v-if="show.rating.average">{{show.rating.average}}</span>
+                <span v-else>N/A</span>
+              </div>
             </div>
           </div>
         </div>
