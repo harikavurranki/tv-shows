@@ -29,7 +29,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
-  name: 'ShowResultsComponent',
+  name: 'SearchResultsComponent',
   data () {
     return {
     }

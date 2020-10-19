@@ -6,7 +6,7 @@
           Shows Hub
         </div>
         <div class="col-lg-3 col-md-8 col-sm-6 col-12 textright search">
-          <input v-model="query" placeholder="Search shows"  @keyup.enter="getDatabySearch">
+          <input v-model="query" placeholder="Search shows"  @keyup.enter="getDataBySearch">
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@ export default {
     ...mapActions([
       'getSearchResults'
     ]),
-    getDatabySearch () {
+    getDataBySearch () {
       this.getSearchResults({ query: this.query })
       this.$router.push({ path: '/search', query: { name: this.query } })
     }

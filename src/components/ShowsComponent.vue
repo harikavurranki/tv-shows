@@ -39,7 +39,7 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-  props: ['eachShowDetails', 'showsLength'],
+  props: ['eachShowDetails'],
   name: 'ShowsComponent',
   data () {
     return {

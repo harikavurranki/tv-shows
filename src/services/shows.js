@@ -24,11 +24,5 @@ export default {
       return res
     })
     return response
-  },
-  getShowCastDetails (showId) {
-    const response = CommonService.getData(`${baseURL}/shows/${showId}/cast`).then((res) => {
-      return res
-    })
-    return response
   }
 }

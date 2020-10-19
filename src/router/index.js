@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Shows from '../views/Shows.vue'
 import ShowDetails from '../views/ShowDetails.vue'
-import SearchResults from '../views/SearchResults.vue'
-import ShowsList from '../components/ShowsListComponent'
+import SearchResultsComponent from '../views/SearchResults.vue'
+import ShowListComponent from '../components/ShowsListComponent'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,18 +14,18 @@ const routes = [
   },
   {
     path: '/showdetails',
-    name: ShowDetails,
+    name: 'ShowDetails',
     component: ShowDetails
   },
   {
     path: '/search',
-    name: SearchResults,
-    component: SearchResults
+    name: 'SearchResultsComponent',
+    component: SearchResultsComponent
   },
   {
     path: '/allshows',
-    name: ShowsList,
-    component: ShowsList
+    name: 'ShowListComponent',
+    component: ShowListComponent
   }
 ]
 
