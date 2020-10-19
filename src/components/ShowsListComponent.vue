@@ -10,14 +10,16 @@
     </div>
     <div class="row">
       <div v-for="(show, index) in showDetails[showName].value" :key="index" class="col-md-2 col-sm-3 col-6 mt20">
-        <div :class="!show.image?'heigth200':''">
+        <div :class="!show.image?'height200':''">
           <img :src="show.image?show.image.medium:''" class="showimageheight" alt="Image is not available">
         </div>
-        <div class="showname" :title="show.name.length>19?show.name:''">{{show.name}}</div>
-        <div class="fs12">
-          <i class="star"></i>
-          <span v-if="show.rating.average">{{show.rating.average}}</span>
-          <span v-else>N/A</span>
+        <div class="row mt10">
+          <div class="showname col-md-8 textleft" :title="show.name.length>15?show.name:''">{{show.name}}</div>
+          <div class="fs12 col-md-4 textright">
+            <i class="star"></i>
+            <span v-if="show.rating.average">{{show.rating.average}}</span>
+            <span v-else>N/A</span>
+          </div>
         </div>
       </div>
     </div>

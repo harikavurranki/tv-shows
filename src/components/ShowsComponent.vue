@@ -8,27 +8,28 @@
       <div class="carousel-inner">
         <div v-for="(eachGenre, index) in count" :key="index" :class="eachGenre>1?'carousel-item mb30': 'carousel-item mb30 active'">
           <div class="row">
-            <div class="col-lg-2 col-md
-            eachShowDetails.value.lengththis.-2 col-sm-4 col-6 mb20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-6 mb20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
               <div :class="!show.image?'heigth200':''">
                 <img :src="show.image?show.image.medium:''" class="showimageheight" alt="Image is not available">
               </div>
-              <div class="showname" :title="show.name.length>19?show.name:''">{{show.name}}</div>
-              <div class="fs12">
-                <i class="star"></i>
-                <span v-if="show.rating.average">{{show.rating.average}}</span>
-                <span v-else>N/A</span>
+              <div class="row mt10">
+                <div class="showname col-md-8 textleft" :title="show.name.length>15?show.name:''">{{show.name}}</div>
+                <div class="fs12 col-md-4 textright">
+                  <i class="star"></i>
+                  <span v-if="show.rating.average">{{show.rating.average}}</span>
+                  <span v-else>N/A</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev showcarousel leftcarousel" :href="'#' + eachShowDetails.label" role="button" data-slide="prev" v-if="eachShowDetails.value.length>6">
+      <a class="carousel-control-prev showcarousel leftcarousel" :href="`#${eachShowDetails.label}`" role="button" data-slide="prev" v-if="eachShowDetails.value.length>6">
         <span class="carousel-control-prev-icon carouselicon" aria-hidden="
-        eachShowDetails.value.lengththis.true"></span>
+        true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next showcarousel rightcarousel" :href="'#' + eachShowDetails.label" role="button" data-slide="next" v-if="eachShowDetails.value.length>6">
+      <a class="carousel-control-next showcarousel rightcarousel" :href="`#${eachShowDetails.label}`" role="button" data-slide="next" v-if="eachShowDetails.value.length>6">
         <span class="carousel-control-next-icon carouselicon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>

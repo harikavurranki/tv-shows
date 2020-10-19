@@ -8,7 +8,8 @@ export default new Vuex.Store({
     showData: {},
     searchResults: [],
     showDetails: [],
-    showName: ''
+    showName: '',
+    seasonEpisodeDetails: []
   },
   mutations: {
     SET_SEARCHRESULTS (state, data) {
@@ -22,6 +23,12 @@ export default new Vuex.Store({
     },
     SET_SHOWNAME (state, data) {
       state.showName = data
+    },
+    SET_EPISODEDETAILS (state, data) {
+      state.seasonEpisodeDetails = data
+    },
+    SET_SEASONDETAILS (state, data) {
+      state.showSeasonDetails = data
     }
   },
   actions: {
@@ -29,8 +36,27 @@ export default new Vuex.Store({
       const searchData = await ShowService.getSearchResultsByQuery(payload.query)
       commit('SET_SEARCHRESULTS', searchData.data)
     },
-    setShowDetails ({ commit, state }, showsByGenre) {
+    async getShowsList ({ commit, state }) {
+      const showdata = await ShowService.getShowDetails()
+      var showsByGenre = {}
+      showdata.data.map(el => {
+        el.genres.map(data => {
+          if (showsByGenre[data]) {
+            showsByGenre[data] = { label: data, value: [...showsByGenre[data].value, el] }
+          } else {
+            showsByGenre[data] = { label: data, value: [el] }
+          }
+        })
+      })
       commit('SET_SHOWDETAILS', showsByGenre)
+    },
+    async getEpisodesData ({ commit, state }, seasonId) {
+      const episodeData = await ShowService.getEpisodesDataBySeasonId(seasonId)
+      commit('SET_EPISODEDETAILS', episodeData.data)
+    },
+    async getSeasonDetails ({ commit, state }, showId) {
+      const seasonData = await ShowService.getShowSeasons(showId)
+      commit('SET_SEASONDETAILS', seasonData.data)
     },
     setShowData ({ commit, state }, show) {
       commit('SET_SHOWDATA', show)

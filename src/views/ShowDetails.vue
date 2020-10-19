@@ -24,13 +24,6 @@
           {{showData.rating.average}}
         </div>
       </div>
-        <!-- <div class="col-md-3 col-sm-6 col-xs-6 col-lg-4">
-          <div v-for="(cast, index) in showCast" :key="index">
-            <img :src="cast.person.image.medium">
-            <div>{{cast.person.name}}</div>
-            <div>{{cast.character.name}}</div>
-          </div>
-        </div> -->
     </div>
     <div class="row mt50">
       <div class="col-md-9 col-sm-6 col-5 episode">
@@ -38,15 +31,13 @@
       </div>
       <div class="col-md-3 col-sm-6 col-7">
         <select class="form-control" @change="filterSeasonId(seasonId)" v-model="seasonId">
-          <option v-for="(season, index) in showSeasonDetails" :key="index" :selected="season.number === 1" :value="'Season '+season.number">Season {{season.number}}</option>
+          <option v-for="(season, index) in showSeasonDetails" :key="index" :selected="season.number === 1" :value="`Season${season.number}`">Season {{season.number}}</option>
         </select>
       </div>
     </div>
     <div class="row eachepisode" v-for="(episode, index) in seasonEpisodeDetails" :key="index">
       <div class="col-lg-4 col-md-6 col-sm-4 col-12 textleft episodeimagecenter">
-        <!-- <div :class="!episode.image?'heigth200':''"> -->
-          <img :src="episode.image?episode.image.medium:''" class="episodeimage" alt="Image is not available">
-        <!-- </div> -->
+        <img :src="episode.image?episode.image.medium:''" class="episodeimage" alt="Image is not available">
       </div>
       <div class="col-lg-8 col-md-6 col-sm-8 col-12">
         <div class="episodename">{{episode.name}}</div>
@@ -56,46 +47,35 @@
   </div>
 </template>
 <script>
-import ShowService from '../services/shows.js'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'ShowDetailsComponent',
   data () {
     return {
-      showSeasonDetails: [],
-      seasonEpisodeDetails: [],
-      seasonId: null,
-      showCast: []
+      seasonId: 'Season1'
     }
   },
-  computed: { ...mapState(['showData']) },
+  computed: { ...mapState(['showData', 'seasonEpisodeDetails', 'showSeasonDetails']) },
   methods: {
+    ...mapActions([
+      'getEpisodesData',
+      'getSeasonDetails'
+    ]),
     redirect () {
       this.$router.push('/')
     },
-    async getSeasonDetails (showId) {
-      const seasonData = await ShowService.getShowSeasons(showId)
-      this.showSeasonDetails = seasonData.data
-      this.filterSeasonId('Season ' + this.showSeasonDetails[0].number)
+    async getSeasons (showId) {
+      this.getSeasonDetails(showId)
+      this.filterSeasonId('Season1')
     },
     filterSeasonId (seasonNumber) {
-      this.seasonId = seasonNumber
-      const seasonData = seasonNumber.split('Season ')
+      const seasonData = seasonNumber.split('Season')
       const season = this.showSeasonDetails.filter(season => season.number === parseInt(seasonData[1]))
       this.getEpisodesData(season[0].id)
-    },
-    async getEpisodesData (seasonNumber) {
-      const episodeData = await ShowService.getEpisodesDataBySeasonId(seasonNumber)
-      this.seasonEpisodeDetails = episodeData.data
-    },
-    async getShowCast (showId) {
-      const showCast = await ShowService.getShowCastDetails(showId)
-      this.showCast = showCast.data
     }
   },
   created () {
-    this.getSeasonDetails(this.showData.id)
-    this.getShowCast(this.showData.id)
+    this.getSeasons(this.showData.id)
   }
 }
 </script>

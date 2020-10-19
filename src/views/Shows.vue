@@ -6,7 +6,6 @@
   </div>
 </template>
 <script>
-import ShowService from '../services/shows.js'
 import ShowsComponent from '../components/ShowsComponent.vue'
 import { mapState, mapActions } from 'vuex'
 export default {
@@ -19,22 +18,9 @@ export default {
   computed: { ...mapState(['showDetails']) },
   methods: {
     ...mapActions([
-      'setShowDetails'
-    ]),
-    async getShowsList () {
-      const showdata = await ShowService.getShowDetails()
-      var showsByGenre = {}
-      for (let i = 0; i < showdata.data.length; i++) {
-        for (let j = 0; j < showdata.data[i].genres.length; j++) {
-          if (showsByGenre[showdata.data[i].genres[j]]) {
-            showsByGenre[showdata.data[i].genres[j]] = { label: showdata.data[i].genres[j], value: [...showsByGenre[showdata.data[i].genres[j]].value, showdata.data[i]] }
-          } else {
-            showsByGenre[showdata.data[i].genres[j]] = { label: showdata.data[i].genres[j], value: [showdata.data[i]] }
-          }
-        }
-      }
-      this.setShowDetails(showsByGenre)
-    }
+      'setShowDetails',
+      'getShowsList'
+    ])
   },
   created () {
     this.getShowsList()
