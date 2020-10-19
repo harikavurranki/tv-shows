@@ -8,7 +8,7 @@
 <script>
 import ShowService from '../services/shows.js'
 import ShowsComponent from '../components/ShowsComponent.vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'Shows',
   components: { ShowsComponent },
@@ -18,6 +18,9 @@ export default {
   },
   computed: { ...mapState(['showDetails']) },
   methods: {
+    ...mapActions([
+      'setShowDetails'
+    ]),
     async getShowsList () {
       const showdata = await ShowService.getShowDetails()
       var showsByGenre = {}
@@ -30,7 +33,7 @@ export default {
           }
         }
       }
-      this.$store.dispatch('setShowDetails', showsByGenre)
+      this.setShowDetails(showsByGenre)
     }
   },
   created () {

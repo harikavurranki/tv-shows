@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'HeaderComponent',
   data () {
@@ -21,8 +22,11 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'getSearchResults'
+    ]),
     getDatabySearch () {
-      this.$store.dispatch('getSearchResults', { query: this.query })
+      this.getSearchResults({ query: this.query })
       this.$router.push({ path: '/search', query: { name: this.query } })
     }
   },

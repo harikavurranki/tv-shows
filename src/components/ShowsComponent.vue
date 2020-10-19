@@ -30,6 +30,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: ['eachShowDetails', 'showsLength'],
   name: 'ShowsComponent',
@@ -39,12 +40,15 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'setShowData', 'setShowName'
+    ]),
     getShowId (show) {
-      this.$store.dispatch('setShowData', show)
+      this.setShowData(show)
       this.$router.push('/showdetails')
     },
     allShows () {
-      this.$store.dispatch('setShowName', this.eachShowDetails.label)
+      this.setShowName(this.eachShowDetails.label)
       this.$router.push('/allshows')
     }
   },

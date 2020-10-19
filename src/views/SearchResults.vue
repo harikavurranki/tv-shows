@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'ShowResultsComponent',
   data () {
@@ -30,13 +30,16 @@ export default {
   },
   computed: { ...mapState(['searchResults']) },
   methods: {
+    ...mapActions([
+      'getSearchResults'
+    ]),
     redirect () {
       this.$router.push('/')
     }
   },
   created () {
     if (this.searchResults.length === 0) {
-      this.$store.dispatch('getSearchResults', { query: this.$route.query.name })
+      this.getSearchResults({ query: this.$route.query.name })
     }
   }
 }
