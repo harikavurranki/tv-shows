@@ -3,25 +3,25 @@
     <div @click="redirect" class="textright backshowdetails"><span class="backtohome">Back to home</span></div>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 col-12 col-lg-3">
-        <img :src="$store.state.showData.image.medium">
+        <img :src="showData.image.medium">
       </div>
       <div class="col-lg-9 col-md-8 col-sm-6 col-12 col-lg-9 textleft">
-        <div class="shownamedata">{{$store.state.showData.name}}</div>
-        <div v-html="$store.state.showData.summary" class="fs13"></div>
+        <div class="shownamedata">{{showData.name}}</div>
+        <div v-html="showData.summary" class="fs13"></div>
         <div class="fs14">
           <span class="showlabel">Genres:</span>
-          <span v-for="(genre, index) in $store.state.showData.genres" :key="index">
+          <span v-for="(genre, index) in showData.genres" :key="index">
             {{genre}}
-            <span v-if="index !== $store.state.showData.genres.length-1">|</span>
+            <span v-if="index !== showData.genres.length-1">|</span>
           </span>
         </div>
         <div class="fs14">
           <span class="showlabel">Language:</span>
-          {{$store.state.showData.language}}
+          {{showData.language}}
         </div>
         <div class="fs14">
           <span class="showlabel">Rating:</span>
-          {{$store.state.showData.rating.average}}
+          {{showData.rating.average}}
         </div>
       </div>
         <!-- <div class="col-md-3 col-sm-6 col-xs-6 col-lg-4">
@@ -56,6 +56,7 @@
 </template>
 <script>
 import ShowService from '../services/shows.js'
+import { mapState } from 'vuex'
 export default {
   name: 'ShowDetailsComponent',
   data () {
@@ -66,6 +67,7 @@ export default {
       showCast: []
     }
   },
+  computed: { ...mapState(['showData']) },
   methods: {
     redirect () {
       this.$router.push('/')
@@ -91,8 +93,8 @@ export default {
     }
   },
   created () {
-    this.getSeasonDetails(this.$store.state.showData.id)
-    this.getShowCast(this.$store.state.showData.id)
+    this.getSeasonDetails(this.showData.id)
+    this.getShowCast(this.showData.id)
   }
 }
 </script>

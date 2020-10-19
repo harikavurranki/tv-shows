@@ -1,13 +1,14 @@
 <template>
   <div class="pt30">
-    <div v-for="(eachShow, index) in Object.keys($store.state.showDetails)" :key="index">
-      <ShowsComponent :eachShowDetails='$store.state.showDetails[eachShow]' :showsLength="$store.state.showDetails[eachShow].value.length"></ShowsComponent>
+    <div v-for="(eachShow, index) in Object.keys(showDetails)" :key="index">
+      <ShowsComponent :eachShowDetails='showDetails[eachShow]' :showsLength="showDetails[eachShow].value.length"></ShowsComponent>
     </div>
   </div>
 </template>
 <script>
 import ShowService from '../services/shows.js'
 import ShowsComponent from '../components/ShowsComponent.vue'
+import { mapState } from 'vuex'
 export default {
   name: 'Shows',
   components: { ShowsComponent },
@@ -15,6 +16,7 @@ export default {
     return {
     }
   },
+  computed: { ...mapState(['showDetails']) },
   methods: {
     async getShowsList () {
       const showdata = await ShowService.getShowDetails()
@@ -28,7 +30,7 @@ export default {
           }
         }
       }
-      this.$store.commit('SET_SHOWDETAILS', showsByGenre)
+      this.$store.dispatch('setShowDetails', showsByGenre)
     }
   },
   created () {

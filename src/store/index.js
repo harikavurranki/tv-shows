@@ -28,6 +28,15 @@ export default new Vuex.Store({
     async getSearchResults ({ commit, state }, payload) {
       const searchData = await ShowService.getSearchResultsByQuery(payload.query)
       commit('SET_SEARCHRESULTS', searchData.data)
+    },
+    setShowDetails ({ commit, state }, showsByGenre) {
+      commit('SET_SHOWDETAILS', showsByGenre)
+    },
+    setShowData ({ commit, state }, show) {
+      commit('SET_SHOWDATA', show)
+    },
+    setShowName ({ commit, state }, showName) {
+      commit('SET_SHOWNAME', showName)
     }
   },
   modules: {
