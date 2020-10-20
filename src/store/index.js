@@ -37,12 +37,12 @@ export const actions = {
   async getShowsList ({ commit, state }) {
     const showdata = await ShowService.getShowDetails()
     var showsByGenre = {}
-    showdata.data.map(el => {
-      el.genres.map(data => {
-        if (showsByGenre[data]) {
-          showsByGenre[data] = { label: data, value: [...showsByGenre[data].value, el] }
+    showdata.data.map(show => {
+      show.genres.map(genre => {
+        if (showsByGenre[genre]) {
+          showsByGenre[genre] = { label: genre, value: [...showsByGenre[genre].value, show] }
         } else {
-          showsByGenre[data] = { label: data, value: [el] }
+          showsByGenre[genre] = { label: genre, value: [show] }
         }
       })
     })

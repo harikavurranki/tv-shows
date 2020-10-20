@@ -1,11 +1,10 @@
-/* eslint-disable max-len */
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import SearchResultsComponent from '../../../src/views/SearchResults.vue';
 import VueRouter from 'vue-router'
 import { routes } from '../../../src/router/index.js'
 
-describe('In dog breeds header', () => {
+describe('TV shows search results', () => {
   let searchWrapper;
   let localVue;
   let mockStore;
@@ -70,22 +69,20 @@ describe('In dog breeds header', () => {
             }
           }
         }
-     ]
-      },
+      ]
+    },
       dispatch: jest.fn(),
     };
     searchWrapper = shallowMount(SearchResultsComponent, {
       mocks: {
         $store: mockStore,
       },
-      data () {
-        return {
-          query: 'arrow'
-        }
-      },
       localVue,
       router
     });
+  });
+  afterEach(() => {
+    searchWrapper.destroy();
   });
   it('is a Vue instance', () => {
     expect(searchWrapper.isVueInstance).toBeTruthy();
@@ -95,14 +92,10 @@ describe('In dog breeds header', () => {
     expect(searchWrapper.html()).toContain('<div class="container pt30">');
   });
 
-  it('it should have a div element with id="app"', () => {
+  it('it should have a div element with id="container pt30"', () => {
     expect(searchWrapper.attributes('class')).toBe('container pt30');
   });
-  it('sample', ()=>{
-    searchWrapper.vm.redirect()
-    expect(router.history.current.fullPath).toBe('/')
-  })
-  it('sample', ()=>{
+  it('it should redirect to the dashboard', ()=>{
     searchWrapper.vm.redirect()
     expect(router.history.current.fullPath).toBe('/')
   })

@@ -1,11 +1,10 @@
-/* eslint-disable max-len */
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import ShowsComponent from '../../../src/components/ShowsComponent.vue';
 import VueRouter from 'vue-router'
 import { routes } from '../../../src/router/index.js'
 
-describe('In dog breeds header', () => {
+describe('Each genre details', () => {
   let showsWrapper;
   let localVue;
   let mockStore;
@@ -87,6 +86,9 @@ describe('In dog breeds header', () => {
       router
     });
   });
+  afterEach(() => {
+    showsWrapper.destroy();
+  });
   it('is a Vue instance', () => {
     expect(showsWrapper.isVueInstance).toBeTruthy();
   });
@@ -95,14 +97,14 @@ describe('In dog breeds header', () => {
     expect(showsWrapper.html()).toContain('container');
   });
 
-  it('it should have a div element with id="app"', () => {
+  it('it should have a div element with class="container"', () => {
     expect(showsWrapper.attributes('class')).toBe('container');
   });
-  it('sample', ()=>{
+  it('it should redirect to the show details page', ()=>{
     showsWrapper.vm.getShowId()
     expect(router.history.current.fullPath).toBe('/showdetails')
   })
-  it('sample', ()=>{
+  it('it should redirect to the all shows page', ()=>{
     showsWrapper.vm.allShows()
     expect(router.history.current.fullPath).toBe('/allshows')
   })

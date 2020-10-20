@@ -5,7 +5,7 @@ import HeaderComponent from '../../../../src/components/header/HeaderComponent.v
 import VueRouter from 'vue-router'
 import { routes } from '../../../../src/router/index.js'
 
-describe('In dog breeds header', () => {
+describe('TV shows header', () => {
   let headerWrapper;
   let localVue;
   let mockStore;
@@ -14,7 +14,6 @@ describe('In dog breeds header', () => {
     localVue = createLocalVue();
     localVue.use(Vuex);
     localVue.use(VueRouter);
-
     mockStore = {
       state: {
         searchResults: []
@@ -34,6 +33,9 @@ describe('In dog breeds header', () => {
       router
     });
   });
+  afterEach(() => {
+    headerWrapper.destroy();
+  });
   it('is a Vue instance', () => {
     expect(headerWrapper.isVueInstance).toBeTruthy();
   });
@@ -41,11 +43,10 @@ describe('In dog breeds header', () => {
   it('renders the correct markup', () => {
     expect(headerWrapper.html()).toContain('<div class="headerbg pt5 pb5">');
   });
-
-  it('it should have a div element with id="app"', () => {
+  it('it should have a div element with class="headerbg pt5 pb5"', () => {
     expect(headerWrapper.attributes('class')).toBe('headerbg pt5 pb5');
   });
-  it('sample', ()=>{
+  it('it should call the funtion after that need to check the route', ()=>{
     headerWrapper.vm.getDataBySearch()
     expect(router.history.current.fullPath).toBe('/search?name=arrow')
   })

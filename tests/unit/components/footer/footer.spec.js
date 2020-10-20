@@ -1,9 +1,8 @@
-/* eslint-disable max-len */
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import FooterComponent from '../../../../src/components/footer/FooterComponent.vue';
 
-describe('In dog breeds header', () => {
+describe('TV shows footer', () => {
   let footerWrapper;
   let localVue;
   beforeEach(() => {
@@ -11,6 +10,9 @@ describe('In dog breeds header', () => {
     footerWrapper = shallowMount(FooterComponent, {
       localVue,
     });
+  });
+  afterEach(() => {
+    footerWrapper.destroy();
   });
   it('is a Vue instance', () => {
     expect(footerWrapper.isVueInstance).toBeTruthy();
@@ -20,10 +22,10 @@ describe('In dog breeds header', () => {
     expect(footerWrapper.html()).toContain('<div class="headerbg pt3 pb3">');
   });
 
-  it('it should have a div element with id="app"', () => {
+  it('it should have a div element with class="headerbg pt3 pb3"', () => {
     expect(footerWrapper.attributes('class')).toBe('headerbg pt3 pb3');
   });
-  it('it should have the Welcome to Dogs Breed App', () => {
+  it('it should have 2020 © Shows hub. All rights reserved.', () => {
     expect(footerWrapper.text()).toMatch('2020 © Shows hub. All rights reserved.')
   });
 });
