@@ -65,7 +65,7 @@ export default {
       this.$router.push('/')
     },
     async getSeasons (showId) {
-      this.getSeasonDetails(showId)
+      await this.getSeasonDetails(showId)
       this.filterSeasonId('Season1')
     },
     filterSeasonId (seasonNumber) {
