@@ -1,7 +1,7 @@
 <template>
   <div class="pt30">
     <div v-for="(eachShow, index) in Object.keys(showDetails)" :key="index">
-      <ShowsComponent :eachShowDetails='showDetails[eachShow]' :showsLength="showDetails[eachShow].value.length"></ShowsComponent>
+      <ShowsComponent :eachShowDetails="showDetails[eachShow]" :genreName="eachShow"></ShowsComponent>
     </div>
   </div>
 </template>

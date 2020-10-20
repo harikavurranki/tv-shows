@@ -2,7 +2,7 @@
 
 ## Project Description
 ```
-TV shows app where user can explore list of TV shows based on the genere, popular shows and user select particular TV show and explore more details of that particular show. User can search for the shows and explore the results based on the search. 
+TV shows app where user can explore list of TV shows based on the genre, popular shows and user select particular TV show and explore more details of that particular show. User can search for the shows and explore the results based on the search. 
 ```
 ## Packages
 ```

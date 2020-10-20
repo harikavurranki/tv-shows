@@ -1,8 +1,8 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import Shows from '../../../src/views/Shows.vue';
+import Shows from '@/views/Shows.vue';
 import VueRouter from 'vue-router'
-import { routes } from '../../../src/router/index.js'
+import { routes } from '@/router/index.js'
 
 describe('Dashboard', () => {
   let dashboardWrapper;
@@ -95,8 +95,4 @@ describe('Dashboard', () => {
   it('it should have a div element with id="app"', () => {
     expect(dashboardWrapper.attributes('class')).toBe('pt30');
   });
-  it('sample', ()=>{
-    // dashboardWrapper.vm.redirect()
-    // expect(router.history.current.fullPath).toBe('/')
-  })
 });

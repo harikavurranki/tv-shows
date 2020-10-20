@@ -1,6 +1,6 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import FooterComponent from '../../../../src/components/footer/FooterComponent.vue';
+import FooterComponent from '@/components/footer/FooterComponent.vue';
 
 describe('TV shows footer', () => {
   let footerWrapper;

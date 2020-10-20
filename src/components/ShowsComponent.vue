@@ -4,7 +4,7 @@
       <div class="col-md-6 col-sm-6 col-6 textleft mb20"><span class="genrename">{{eachShowDetails.label}}</span></div>
       <div class="col-md-6 col-sm-6 col-6 textright mb20" v-if="eachShowDetails.value.length>6" @click="allShows"><span class="backtohome">Explore More</span></div>
     </div>
-    <div :id="eachShowDetails.label" class="carousel slide" data-ride="carousel">
+    <div :id="genreName" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div v-for="(eachGenre, index) in count" :key="index" :class="eachGenre>1?'carousel-item mb30': 'carousel-item mb30 active'">
           <div class="row">
@@ -24,12 +24,12 @@
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev showcarousel leftcarousel" :href="`#${eachShowDetails.label}`" role="button" data-slide="prev" v-if="eachShowDetails.value.length>6">
+      <a class="carousel-control-prev showcarousel leftcarousel" :href="`#${genreName}`" role="button" data-slide="prev" v-if="eachShowDetails.value.length>6">
         <span class="carousel-control-prev-icon carouselicon" aria-hidden="
         true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next showcarousel rightcarousel" :href="`#${eachShowDetails.label}`" role="button" data-slide="next" v-if="eachShowDetails.value.length>6">
+      <a class="carousel-control-next showcarousel rightcarousel" :href="`#${genreName}`" role="button" data-slide="next" v-if="eachShowDetails.value.length>6">
         <span class="carousel-control-next-icon carouselicon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -39,7 +39,7 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-  props: ['eachShowDetails'],
+  props: ['eachShowDetails', 'genreName'],
   name: 'ShowsComponent',
   data () {
     return {

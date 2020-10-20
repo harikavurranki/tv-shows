@@ -1,8 +1,8 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import SearchResultsComponent from '../../../src/views/SearchResults.vue';
+import SearchResultsComponent from '@/views/SearchResults.vue';
 import VueRouter from 'vue-router'
-import { routes } from '../../../src/router/index.js'
+import { routes } from '@/router/index.js'
 
 describe('TV shows search results', () => {
   let searchWrapper;

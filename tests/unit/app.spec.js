@@ -1,7 +1,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import app from '../../src/App.vue';
-import HeaderComponent from '../../src/components/header/HeaderComponent.vue'
-import FooterComponent from '../../src/components/footer/FooterComponent.vue'
+import HeaderComponent from '@/components/header/HeaderComponent.vue'
+import FooterComponent from '@/components/footer/FooterComponent.vue'
 
 describe('In App Component', () => {
   let appWrapper;

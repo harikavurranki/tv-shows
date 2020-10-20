@@ -8,8 +8,8 @@
         <div @click="redirect"><span class="backtohome">Back to home</span></div>
       </div>
     </div>
-    <div v-if="searchResults.length === 0" class="oops">
-      OOPS details not found for <span class="backtohome">{{$route.query.name}}</span>. Please click on <span class="backtohome" @click="redirect">Home</span>
+    <div v-if="searchResults.length === 0" class="oops notfound">
+      <span>OOPS details not found for  <span class="backtohome"> {{$route.query.name}}</span>. Please click on <span class="backtohome" @click="redirect">Home</span></span>
     </div>
     <div class="row">
       <div v-for="(search, index) in searchResults" :key="index" class="col-lg-2 col-md-3 col-sm-3 col-6 mt20">

@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import { store, state, mutations, actions } from '../../../src/store/index.js'
-import CommonService from '../../../src/services/shows.js'
+import { store, state, mutations, actions } from '@/store/index.js'
+import CommonService from '@/services/shows.js'
 import flushPromises from 'flush-promises'
 
 import Vue from 'vue'

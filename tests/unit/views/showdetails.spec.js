@@ -1,8 +1,8 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import ShowDetailsComponent from '../../../src/views/ShowDetails.vue';
+import ShowDetailsComponent from '@/views/ShowDetails.vue';
 import VueRouter from 'vue-router'
-import { routes } from '../../../src/router/index.js'
+import { routes } from '@/router/index.js'
 
 describe('Details of the particular show', () => {
   let showDetailsWrapper;

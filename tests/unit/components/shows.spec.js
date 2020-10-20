@@ -1,8 +1,8 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import ShowsComponent from '../../../src/components/ShowsComponent.vue';
+import ShowsComponent from '@/components/ShowsComponent.vue';
 import VueRouter from 'vue-router'
-import { routes } from '../../../src/router/index.js'
+import { routes } from '@/router/index.js'
 
 describe('Each genre details', () => {
   let showsWrapper;

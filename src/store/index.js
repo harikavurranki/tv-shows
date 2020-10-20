@@ -24,7 +24,6 @@ export const mutations = {
     state.showName = data
   },
   SET_EPISODEDETAILS (state, data) {
-    console.log('harika====', data)
     state.seasonEpisodeDetails = data
   },
   SET_SEASONDETAILS (state, data) {
@@ -38,11 +37,17 @@ export const actions = {
   },
   async getShowsList ({ commit, state }) {
     const showdata = await ShowService.getShowDetails()
-    var showsByGenre = {}
+    showdata.data.sort((a, b) => b.rating.average - a.rating.average)
+    var showsByGenre = {
+      PopularShows: {
+        label: 'Popular Shows',
+        value: showdata.data.slice(0, 50)
+      }
+    }
     showdata.data.map(show => {
       show.genres.map(genre => {
         if (showsByGenre[genre]) {
-          showsByGenre[genre] = { label: genre, value: [...showsByGenre[genre].value, show] }
+          showsByGenre[genre].value.push(show)
         } else {
           showsByGenre[genre] = { label: genre, value: [show] }
         }

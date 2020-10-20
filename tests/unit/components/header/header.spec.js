@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import HeaderComponent from '../../../../src/components/header/HeaderComponent.vue';
+import HeaderComponent from '@/components/header/HeaderComponent.vue';
 import VueRouter from 'vue-router'
-import { routes } from '../../../../src/router/index.js'
+import { routes } from '@/router/index.js'
 
 describe('TV shows header', () => {
   let headerWrapper;

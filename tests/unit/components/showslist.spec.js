@@ -1,8 +1,8 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import ShowListComponent from '../../../src/components/ShowsListComponent.vue';
+import ShowListComponent from '@/components/ShowsListComponent.vue';
 import VueRouter from 'vue-router'
-import { routes } from '../../../src/router/index.js'
+import { routes } from '@/router/index.js'
 
 describe('All the shows related to genre', () => {
   let showsListWrapper;
