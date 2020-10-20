@@ -9,13 +9,13 @@
       </div>
     </div>
     <div class="row">
-      <div v-for="(show, index) in showDetails[showName].value" :key="index" class="col-md-2 col-sm-3 col-6 mt20">
+      <div v-for="(show, index) in showDetails[showName].value" :key="index" class=" col-lg-2 col-md-3 col-sm-3 col-6 mt20">
         <div :class="!show.image?'height200':''">
           <img :src="show.image?show.image.medium:''" class="showimageheight" alt="Image is not available">
         </div>
         <div class="row mt10">
-          <div class="showname col-md-8 textleft" :title="show.name.length>15?show.name:''">{{show.name}}</div>
-          <div class="fs12 col-md-4 textright">
+          <div class="showname col-lg-7 col-md-7 col-sm-8 col-7 textleft" :title="show.name">{{show.name}}</div>
+          <div class="fs12 col-lg-5 col-md-5 col-sm-4 col-5 textright">
             <i class="star"></i>
             <span v-if="show.rating.average">{{show.rating.average}}</span>
             <span v-else>N/A</span>

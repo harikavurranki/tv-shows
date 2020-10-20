@@ -12,14 +12,14 @@
       OOPS details not found for <span class="backtohome">{{$route.query.name}}</span>. Please click on <span class="backtohome" @click="redirect">Home</span>
     </div>
     <div class="row">
-      <div v-for="(search, index) in searchResults" :key="index" class="col-md-2 col-sm-3 col-6 mt20">
+      <div v-for="(search, index) in searchResults" :key="index" class="col-lg-2 col-md-3 col-sm-3 col-6 mt20">
         <div :class="!search.show.image?'heigth200':''"><img :src="search.show.image?search.show.image.medium:''" class="showimageheight" alt="Image is not available"></div>
         <div class="row mt10">
-          <div class="showname col-md-8 textleft" :title="search.show.name.length>15?search.show.name:''">{{search.show.name}}</div>
-          <div class="col-md-4 textright">
+          <div class="showname col-lg-7 col-md-7 col-sm-8 col-7 textleft" :title="search.show.name">{{search.show.name}}</div>
+          <div class="fs12 col-lg-5 col-md-5 col-sm-4 col-5 textright">
             <i class="star"></i>
-            <span v-if="search.show.rating.average" class="fs12">{{search.show.rating.average}}</span>
-            <span v-else class="fs11">N/A</span>
+            <span v-if="search.show.rating.average">{{search.show.rating.average}}</span>
+            <span v-else>N/A</span>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Shows from '../views/Shows.vue'
 import ShowDetails from '../views/ShowDetails.vue'
 import SearchResultsComponent from '../views/SearchResults.vue'
 import ShowListComponent from '../components/ShowsListComponent'
+import PageNotFound from '../views/PageNotFound.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: '/allshows',
     name: 'ShowListComponent',
     component: ShowListComponent
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'PageNotFound',
+    component: PageNotFound
   }
 ]
 

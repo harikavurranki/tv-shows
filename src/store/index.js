@@ -7,7 +7,8 @@ export const state = {
   searchResults: [],
   showDetails: [],
   showName: '',
-  seasonEpisodeDetails: []
+  seasonEpisodeDetails: [],
+  showSeasonDetails: []
 }
 export const mutations = {
   SET_SEARCHRESULTS (state, data) {
@@ -23,6 +24,7 @@ export const mutations = {
     state.showName = data
   },
   SET_EPISODEDETAILS (state, data) {
+    console.log('harika====', data)
     state.seasonEpisodeDetails = data
   },
   SET_SEASONDETAILS (state, data) {
