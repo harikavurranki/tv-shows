@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="row">
-      <div v-for="(show, index) in showDetails[showName].value" :key="index" class=" col-lg-2 col-md-3 col-sm-3 col-6 mt20">
+      <div v-for="(show, index) in showDetails[showName].value" :key="index" class=" col-lg-2 col-md-3 col-sm-3 col-6 mt20" @click="getShowId(show)">
         <div :class="!show.image?'height200':''">
           <img :src="show.image?show.image.medium:''" class="showimageheight" alt="Image is not available">
         </div>
@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'ShowListComponent',
   data () {
@@ -35,6 +35,9 @@ export default {
   },
   computed: { ...mapState(['showName', 'showDetails']) },
   methods: {
+    ...mapActions([
+      'getShowId'
+    ]),
     redirect () {
       this.$router.push('/')
     }

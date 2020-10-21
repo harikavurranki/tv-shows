@@ -48,14 +48,10 @@ export default {
   },
   methods: {
     ...mapActions([
-      'setShowData', 'setShowName'
+      'setShowName', 'getShowId'
     ]),
-    getShowId (show) {
-      this.setShowData(show)
-      this.$router.push('/showdetails')
-    },
     allShows () {
-      this.setShowName(this.eachShowDetails.label)
+      this.setShowName(this.genreName)
       this.$router.push('/allshows')
     }
   },

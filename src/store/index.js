@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import ShowService from '../services/shows.js'
+import router from '../router/index.js'
 Vue.use(Vuex)
 export const state = {
   showData: {},
@@ -63,11 +64,12 @@ export const actions = {
     const seasonData = await ShowService.getShowSeasons(showId)
     commit('SET_SEASONDETAILS', seasonData.data)
   },
-  setShowData ({ commit, state }, show) {
-    commit('SET_SHOWDATA', show)
-  },
   setShowName ({ commit, state }, showName) {
     commit('SET_SHOWNAME', showName)
+  },
+  getShowId ({ commit, state }, show) {
+    commit('SET_SHOWDATA', show)
+    router.push('/showdetails')
   }
 }
 export const modules = {}

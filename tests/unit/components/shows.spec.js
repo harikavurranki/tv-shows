@@ -100,12 +100,9 @@ describe('Each genre details', () => {
   it('it should have a div element with class="container"', () => {
     expect(showsWrapper.attributes('class')).toBe('container');
   });
-  it('it should redirect to the show details page', ()=>{
-    showsWrapper.vm.getShowId()
-    expect(router.history.current.fullPath).toBe('/showdetails')
-  })
+
   it('it should redirect to the all shows page', ()=>{
     showsWrapper.vm.allShows()
     expect(router.history.current.fullPath).toBe('/allshows')
-  })
+  });
 });
