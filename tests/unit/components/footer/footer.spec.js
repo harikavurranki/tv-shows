@@ -1,4 +1,3 @@
-import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import FooterComponent from '@/components/footer/FooterComponent.vue';
 

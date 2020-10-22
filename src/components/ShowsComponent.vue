@@ -9,17 +9,7 @@
         <div v-for="(eachGenre, index) in count" :key="index" :class="eachGenre>1?'carousel-item mb30': 'carousel-item mb30 active'">
           <div class="row">
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
-              <div :class="!show.image?'heigth200':''">
-                <img :src="show.image?show.image.medium:''" class="showimageheight" alt="Image is not available">
-              </div>
-              <div class="row mt10">
-                <div class="showname col-lg-7 col-md-7 col-sm-8 col-7 textleft" :title="show.name">{{show.name}}</div>
-                <div class="fs12 col-lg-5 col-md-5 col-sm-4 col-5 textright">
-                  <i class="star"></i>
-                  <span v-if="show.rating.average">{{show.rating.average}}</span>
-                  <span v-else>N/A</span>
-                </div>
-              </div>
+              <ImageComponent :cardData="{image: show.image, rating: show.rating, showName: show.name}"></ImageComponent>
             </div>
           </div>
         </div>
@@ -37,9 +27,11 @@
   </div>
 </template>
 <script>
+import ImageComponent from './ImageComponent.vue'
 import { mapActions } from 'vuex'
 export default {
   props: ['eachShowDetails', 'genreName'],
+  components: { ImageComponent },
   name: 'ShowsComponent',
   data () {
     return {

@@ -1,18 +1,14 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import ShowListComponent from '@/components/ShowsListComponent.vue';
-import VueRouter from 'vue-router'
-import { routes } from '@/router/index.js'
+import AllShows from '@/views/AllShows.vue';
 
 describe('All the shows related to genre', () => {
   let showsListWrapper;
   let localVue;
   let mockStore;
-  const router = new VueRouter({routes})
   beforeEach(() => {
     localVue = createLocalVue();
     localVue.use(Vuex);
-    localVue.use(VueRouter);
     mockStore = {
       state: {
         showName: 'Drama',
@@ -75,12 +71,11 @@ describe('All the shows related to genre', () => {
       },
       dispatch: jest.fn(),
     };
-    showsListWrapper = shallowMount(ShowListComponent, {
+    showsListWrapper = shallowMount(AllShows, {
       mocks: {
         $store: mockStore,
       },
-      localVue,
-      router
+      localVue
     });
   });
   afterEach(() => {
@@ -97,8 +92,4 @@ describe('All the shows related to genre', () => {
   it('it should have a div element with id="app"', () => {
     expect(showsListWrapper.attributes('class')).toBe('container pt30');
   });
-  it('it should redirect to the dashboard page', ()=>{
-    showsListWrapper.vm.redirect()
-    expect(router.history.current.fullPath).toBe('/')
-  })
 });

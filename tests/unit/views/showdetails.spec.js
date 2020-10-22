@@ -73,11 +73,6 @@ describe('Details of the particular show', () => {
       mocks: {
         $store: mockStore,
       },
-      data () {
-        return {
-          
-        }
-      },
       localVue,
       router
     });

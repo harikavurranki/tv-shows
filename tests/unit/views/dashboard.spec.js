@@ -1,18 +1,14 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Shows from '@/views/Shows.vue';
-import VueRouter from 'vue-router'
-import { routes } from '@/router/index.js'
 
 describe('Dashboard', () => {
   let dashboardWrapper;
   let localVue;
   let mockStore;
-  const router = new VueRouter({routes})
   beforeEach(() => {
     localVue = createLocalVue();
     localVue.use(Vuex);
-    localVue.use(VueRouter);
     mockStore = {
       state: {
           showDetails: {
@@ -77,8 +73,7 @@ describe('Dashboard', () => {
       mocks: {
         $store: mockStore,
       },
-      localVue,
-      router
+      localVue
     });
   });
   afterEach(() => {

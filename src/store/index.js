@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import ShowService from '../services/shows.js'
-import router from '../router/index.js'
+import router from '../router'
 Vue.use(Vuex)
 export const state = {
   showData: {},

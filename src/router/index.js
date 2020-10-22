@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Shows from '../views/Shows.vue'
 import ShowDetails from '../views/ShowDetails.vue'
 import SearchResultsComponent from '../views/SearchResults.vue'
-import ShowListComponent from '../components/ShowsListComponent'
+import AllShows from '../views/AllShows.vue'
 import PageNotFound from '../views/PageNotFound.vue'
 Vue.use(VueRouter)
 
@@ -25,8 +25,8 @@ const routes = [
   },
   {
     path: '/allshows',
-    name: 'ShowListComponent',
-    component: ShowListComponent
+    name: 'AllShows',
+    component: AllShows
   },
   {
     path: '/:catchAll(.*)',
