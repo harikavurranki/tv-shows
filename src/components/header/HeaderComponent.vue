@@ -5,7 +5,7 @@
         <div class="col-lg-9 col-md-4 col-sm-6 col-12 headertitle fontbold">
           Shows Hub
         </div>
-        <div class="col-lg-3 col-md-8 col-sm-6 col-12 textright search">
+        <div class="col-lg-3 col-md-8 col-sm-6 col-12 textright search mt10">
           <input v-model="query" placeholder="Search shows"  @keyup.enter="getDataBySearch">
         </div>
       </div>
@@ -37,8 +37,8 @@ export default {
 <style>
   .headertitle {
     text-align: left;
-    font-style: italic;
     padding-top: 3px;
+    font-size: 30px;
   }
   ::placeholder {
     font-size: 12px;

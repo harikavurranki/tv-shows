@@ -11,6 +11,10 @@
   justify-content: center;
   margin: auto;
 }
+.description {
+  font-size: 15px;
+  line-height: 1.5;
+}
 .star {
   position: relative;
   display: inline-block;
@@ -45,15 +49,18 @@
   font-size: 12px;
 }
 .bg {
-  background: #0000ff1a;
+  background: #0000ff0d;
 }
 .mt20 {
   margin-top: 20px;
 }
 .backtohome {
-  color: #007bff;
-  border-bottom: 1px solid #007bff;
+  color: white;
   cursor: pointer;
+  padding: 6px 10px 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  background: #1959a1;
 }
 .genrename {
   border-bottom: 3px solid #1834f7;
@@ -77,6 +84,7 @@
 .shownamedata {
   font-size: 18px;
   font-weight: bold;
+  color: #1959a1;
 }
 .textright {
   text-align: right;
@@ -102,13 +110,15 @@
 .eachepisode img {
   margin-bottom: 30px;
 }
+.sections {
+  border-bottom: 1px solid #80808040;
+  padding-top: 30px;
+}
 .episodename {
   text-align: left;
   font-size: 20px;
   font-weight: bold;
-}
-.episodesummary {
-  text-align: left;
+  color: #1959a1;
 }
 .fs13 {
   font-size: 13px;
@@ -137,7 +147,8 @@
   padding-bottom: 5px
 }
 .headerbg {
-  background: #e6ae06;
+  background: #1959a1;
+  color: white;
 }
 .pt3 {
   padding-top: 3px;

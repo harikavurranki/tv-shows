@@ -7,7 +7,7 @@
       </div>
       <div class="col-lg-9 col-md-8 col-sm-6 col-12 col-lg-9 textleft">
         <div class="shownamedata">{{showData.name}}</div>
-        <div v-html="showData.summary" class="fs13"></div>
+        <div v-html="showData.summary" class="description"></div>
         <div class="fs14">
           <span class="showlabel">Genres:</span>
           <span v-for="(genre, index) in showData.genres" :key="index">
@@ -15,11 +15,11 @@
             <span v-if="index !== showData.genres.length-1">|</span>
           </span>
         </div>
-        <div class="fs14">
+        <div class="fs14 mt10">
           <span class="showlabel">Language:</span>
           {{showData.language}}
         </div>
-        <div class="fs14">
+        <div class="fs14 mt10">
           <span class="showlabel">Rating:</span>
           {{showData.rating.average}}
         </div>
@@ -41,7 +41,7 @@
       </div>
       <div class="col-lg-8 col-md-6 col-sm-8 col-12">
         <div class="episodename">{{episode.name}}</div>
-        <div v-html="episode.summary" class="episodesummary fs13"></div>
+        <div v-html="episode.summary" class="textleft description"></div>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container sections">
     <div class="row">
       <div class="col-md-6 col-sm-6 col-6 textleft mb20"><span class="genrename">{{eachShowDetails.label}}</span></div>
       <div class="col-md-6 col-sm-6 col-6 textright mb20" v-if="eachShowDetails.value.length>6" @click="allShows"><span class="backtohome">Explore More</span></div>
@@ -58,11 +58,12 @@ export default {
 </script>
 <style>
 .showcarousel {
-  background: gray;
+  background: #1959a1;
   height: 30px;
   top: 80px !important;
   width: 32px !important;
-  border-radius: 5px;
+  border-radius: 15px;
+  opacity: 1 !important;
 }
 .leftcarousel {
   left: -37px !important;
