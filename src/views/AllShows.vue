@@ -2,7 +2,7 @@
   <div class="container pt30">
     <TopViewComponent :name="showName"></TopViewComponent>
     <div class="row">
-      <div v-for="(show, index) in showDetails[showName].value" :key="index" class=" col-lg-2 col-md-3 col-sm-3 col-6 mt20" @click="getShowId(show)">
+      <div v-for="(show, index) in showDetails[showName].value" :key="index" class="col-lg-2 col-md-3 col-sm-3 col-6 mt20" @click="getShowId(show)">
         <ImageComponent :cardData="{image: show.image, rating: show.rating, showName: show.name}"></ImageComponent>
       </div>
     </div>

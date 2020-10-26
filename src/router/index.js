@@ -5,6 +5,7 @@ import ShowDetails from '../views/ShowDetails.vue'
 import SearchResultsComponent from '../views/SearchResults.vue'
 import AllShows from '../views/AllShows.vue'
 import PageNotFound from '../views/PageNotFound.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
