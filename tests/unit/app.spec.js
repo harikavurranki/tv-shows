@@ -2,13 +2,18 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import app from '../../src/App.vue';
 import HeaderComponent from '@/components/header/HeaderComponent.vue'
 import FooterComponent from '@/components/footer/FooterComponent.vue'
+import VueRouter from 'vue-router'
+import { routes } from '@/router/index.js'
 
 describe('In App Component', () => {
   let appWrapper;
+  const router = new VueRouter({routes})
   beforeEach(() => {
     const localVue = createLocalVue();
+    localVue.use(VueRouter);
     appWrapper = shallowMount(app, {
       localVue,
+      router
     });
   });
   afterEach(() => {

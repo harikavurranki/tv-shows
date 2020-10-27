@@ -10,6 +10,8 @@ describe('Common service', () => {
     axios.get.mockResolvedValue(data);
     CommonService.getData().then((res) =>{
       expect(res).toEqual(data);
+    }).catch((error)=>{
+      
     })
   });
 });

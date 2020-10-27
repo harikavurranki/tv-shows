@@ -38,7 +38,7 @@ export const actions = {
   },
   async getShowsList ({ commit, state }) {
     const showdata = await ShowService.getShowDetails()
-    showdata.data.sort((a, b) => b.rating.average - a.rating.average)
+    showdata.data.sort((first, second) => second.rating.average - first.rating.average)
     var showsByGenre = {
       PopularShows: {
         label: 'Popular Shows',
