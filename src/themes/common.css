@@ -151,10 +151,10 @@
   color: white;
 }
 .pt-3 {
-  padding-top: 3px;
+  padding-top: 3px !important;
 }
 .pb-3 {
-  padding-bottom: 3px
+  padding-bottom: 3px !important;
 }
 .footer-class {
   font-size: 15px;

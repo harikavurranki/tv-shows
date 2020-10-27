@@ -1,25 +1,17 @@
 # tv-shows
 
-## Project Description
+### Project Description
 ```
 TV shows app where user can explore list of TV shows based on the genre, popular shows and user select particular TV show and explore more details of that particular show. User can search for the shows and explore the results based on the search. 
 ```
-## Packages
+### Project setup
 ```
-Vue cli (v4.5.7)
-HTTP client: Axios
-Unit testing: Jest
-Routes management: VueRouter
-Store management: Vuex 
-Components design: Bootstrap
-Preprocessor: Sass (node-sass)
-Code formatters: ES-Linter
-```
-## Project setup
-```
-npm install
-```
+Get the code from the below repository using git
 
+git clone https://github.com/harikavurranki/tv-shows.git
+
+Once downloaded/cloned, open the terminal in the project directory, and continue with: npm install
+```
 ### Compiles and hot-reloads for development
 ```
 npm run serve
