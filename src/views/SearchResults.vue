@@ -2,11 +2,11 @@
   <div class="container pt-30">
     <TopViewComponent :name="'Search results'"></TopViewComponent>
     <div v-if="searchResults.length === 0" class="oops not-found">
-      <span>OOPS details not found for  <span class="back-to-home"> {{$route.query.name}}</span>. Please click on <span class="back-to-home" @click="redirect">Home</span></span>
+      <span>OOPS details not found for  <span class="search-word-highlight"> {{$route.query.name}}</span></span>
     </div>
     <div class="row">
-      <div v-for="(search, index) in searchResults" :key="index" class="col-lg-2 col-md-3 col-sm-3 col-6 mt-20" @click="getShowId(search.show)">
-        <ImageComponent :cardData="{image: search.show.image, rating: search.show.rating, showName: search.show.name}"></ImageComponent>
+      <div v-for="(search, index) in searchResults" :key="index" class="col-lg-2 col-md-3 col-sm-3 col-6 mt-20">
+        <ImageComponent :cardData="{image: search.show.image, rating: search.show.rating, showName: search.show.name, id:search.show.id}"></ImageComponent>
       </div>
     </div>
   </div>
@@ -25,11 +25,8 @@ export default {
   computed: { ...mapState(['searchResults']) },
   methods: {
     ...mapActions([
-      'getSearchResults', 'getShowId'
-    ]),
-    redirect () {
-      this.$router.push('/')
-    }
+      'getSearchResults'
+    ])
   },
   created () {
     if (this.searchResults.length === 0) {

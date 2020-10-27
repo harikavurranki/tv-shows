@@ -24,5 +24,11 @@ export default {
       return res
     })
     return response
+  },
+  getShowDetailsById (showId) {
+    const response = CommonService.getData(`${baseURL}/shows/${showId}`).then((res) => {
+      return res
+    })
+    return response
   }
 }

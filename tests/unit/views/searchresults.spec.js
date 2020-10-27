@@ -95,8 +95,4 @@ describe('TV shows search results', () => {
   it('it should have a div element with id="container pt-30"', () => {
     expect(searchWrapper.attributes('class')).toBe('container pt-30');
   });
-  it('it should redirect to the dashboard', ()=>{
-    searchWrapper.vm.redirect()
-    expect(router.history.current.fullPath).toBe('/')
-  })
 });

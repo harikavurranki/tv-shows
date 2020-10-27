@@ -28,6 +28,7 @@ export default {
     getDataBySearch () {
       this.getSearchResults({ query: this.query })
       this.$router.push({ path: '/search', query: { name: this.query } })
+      this.query = ''
     }
   },
   created () {

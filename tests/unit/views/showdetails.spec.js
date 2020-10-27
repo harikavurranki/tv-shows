@@ -91,8 +91,4 @@ describe('Details of the particular show', () => {
   it('it should have a div element with class="container pt-50"', () => {
     expect(showDetailsWrapper.attributes('class')).toBe('container pt-50');
   });
-  it('it should redirect to the dashboard', ()=>{
-    showDetailsWrapper.vm.redirect()
-    expect(router.history.current.fullPath).toBe('/')
-  })
 });

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="getShowId()">
     <div :class="!cardData.image?'height-200':''">
       <img :src="cardData.image?cardData.image.medium:''" class="show-image-height" alt="Image is not available">
     </div>
@@ -19,7 +19,9 @@ export default {
   props: ['cardData'],
   data () {
     return {
-
+      getShowId () {
+        this.$router.push(`/showdetails/${this.cardData.id}`)
+      }
     }
   }
 }

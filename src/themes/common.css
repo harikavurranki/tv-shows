@@ -5,7 +5,7 @@
   padding-top: 30px;
 }
 .not-found {
-  height: 15em;
+  height: 12.5em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,6 +153,10 @@
 .pt-3 {
   padding-top: 3px !important;
 }
+.search-word-highlight {
+  color: #1959a1;
+  font-weight: bold;
+}
 .pb-3 {
   padding-bottom: 3px !important;
 }
@@ -190,8 +194,22 @@
 		text-align: center;
 	}
 }
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 768px) {
 	.episode-image {
 		width: 108% !important;
 	}
+  .show-image-height {
+    height: 270px !important;
+  }
+  .show-carousel {
+    top: 277px !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .show-image-height {
+    height: 270px !important;
+  }
+  .show-carousel {
+    top: 277px !important;
+  }
 }

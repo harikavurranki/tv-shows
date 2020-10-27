@@ -8,8 +8,8 @@
       <div class="carousel-inner">
         <div v-for="(eachGenre, index) in count" :key="index" :class="eachGenre>1?'carousel-item mb-30': 'carousel-item mb-30 active'">
           <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
-              <ImageComponent :cardData="{image: show.image, rating: show.rating, showName: show.name}"></ImageComponent>
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6 mb-20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id">
+              <ImageComponent :cardData="{image: show.image, rating: show.rating, showName: show.name, id: show.id}"></ImageComponent>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      'setShowName', 'getShowId'
+      'setShowName'
     ]),
     allShows () {
       this.setShowName(this.genreName)

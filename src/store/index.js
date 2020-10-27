@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import ShowService from '../services/shows.js'
-import router from '../router'
+
 Vue.use(Vuex)
 export const state = {
   showData: {},
@@ -67,9 +67,9 @@ export const actions = {
   setShowName ({ commit, state }, showName) {
     commit('SET_SHOWNAME', showName)
   },
-  getShowId ({ commit, state }, show) {
-    commit('SET_SHOWDATA', show)
-    router.push('/showdetails')
+  async getShowData ({ commit, state }, showId) {
+    const showData = await ShowService.getShowDetailsById(showId)
+    commit('SET_SHOWDATA', showData.data)
   }
 }
 const store = new Vuex.Store({
