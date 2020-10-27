@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div :class="!cardData.image?'heigth200':''">
-      <img :src="cardData.image?cardData.image.medium:''" class="showimageheight" alt="Image is not available">
+    <div :class="!cardData.image?'height-200':''">
+      <img :src="cardData.image?cardData.image.medium:''" class="show-image-height" alt="Image is not available">
     </div>
-    <div class="row mt10">
-      <div class="showname col-lg-7 col-md-7 col-sm-8 col-7 textleft" :title="cardData.showName">{{cardData.showName}}</div>
-      <div class="fs12 col-lg-5 col-md-5 col-sm-4 col-5 textright">
+    <div class="row mt-10">
+      <div class="show-name col-lg-7 col-md-7 col-sm-8 col-7 text-left" :title="cardData.showName">{{cardData.showName}}</div>
+      <div class="fs-12 col-lg-5 col-md-5 col-sm-4 col-5 text-right">
         <i class="star"></i>
         <span v-if="cardData.rating.average">{{cardData.rating.average}}</span>
         <span v-else>N/A</span>

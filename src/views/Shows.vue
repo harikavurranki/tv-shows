@@ -1,5 +1,5 @@
 <template>
-  <div class="pt30">
+  <div class="pt-30">
     <div v-for="(eachShow, index) in Object.keys(showDetails)" :key="index">
       <ShowsComponent :eachShowDetails="showDetails[eachShow]" :genreName="eachShow"></ShowsComponent>
     </div>

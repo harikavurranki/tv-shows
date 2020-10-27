@@ -1,26 +1,26 @@
 <template>
   <div class="container sections">
     <div class="row">
-      <div class="col-md-6 col-sm-6 col-6 textleft mb20"><span class="genrename">{{eachShowDetails.label}}</span></div>
-      <div class="col-md-6 col-sm-6 col-6 textright mb20" v-if="eachShowDetails.value.length>6" @click="allShows"><span class="backtohome">Explore More</span></div>
+      <div class="col-md-6 col-sm-6 col-6 text-left mb-20"><span class="genre-name">{{eachShowDetails.label}}</span></div>
+      <div class="col-md-6 col-sm-6 col-6 text-right mb-20" v-if="eachShowDetails.value.length>6" @click="allShows"><span class="back-to-home">Explore More</span></div>
     </div>
     <div :id="genreName" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div v-for="(eachGenre, index) in count" :key="index" :class="eachGenre>1?'carousel-item mb30': 'carousel-item mb30 active'">
+        <div v-for="(eachGenre, index) in count" :key="index" :class="eachGenre>1?'carousel-item mb-30': 'carousel-item mb-30 active'">
           <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-20" v-for="show in eachShowDetails.value.slice(index*6, index*6+6)" :key="show.id" @click="getShowId(show)">
               <ImageComponent :cardData="{image: show.image, rating: show.rating, showName: show.name}"></ImageComponent>
             </div>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev showcarousel leftcarousel" :href="`#${genreName}`" role="button" data-slide="prev" v-if="eachShowDetails.value.length>6">
-        <span class="carousel-control-prev-icon carouselicon" aria-hidden="
+      <a class="carousel-control-prev show-carousel left-carousel" :href="`#${genreName}`" role="button" data-slide="prev" v-if="eachShowDetails.value.length>6">
+        <span class="carousel-control-prev-icon carousel-icon" aria-hidden="
         true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next showcarousel rightcarousel" :href="`#${genreName}`" role="button" data-slide="next" v-if="eachShowDetails.value.length>6">
-        <span class="carousel-control-next-icon carouselicon" aria-hidden="true"></span>
+      <a class="carousel-control-next show-carousel right-carousel" :href="`#${genreName}`" role="button" data-slide="next" v-if="eachShowDetails.value.length>6">
+        <span class="carousel-control-next-icon carousel-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
@@ -57,7 +57,7 @@ export default {
 }
 </script>
 <style>
-.showcarousel {
+.show-carousel {
   background: #1959a1;
   height: 30px;
   top: 80px !important;
@@ -65,13 +65,13 @@ export default {
   border-radius: 15px;
   opacity: 1 !important;
 }
-.leftcarousel {
+.left-carousel {
   left: -37px !important;
 }
-.rightcarousel {
+.right-carousel {
   right: -37px !important;
 }
-.carouselicon {
+.carousel-icon {
   width: 37% !important;
 }
 </style>

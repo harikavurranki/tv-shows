@@ -94,11 +94,11 @@ describe('Each genre details', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(showsWrapper.html()).toContain('container');
+    expect(showsWrapper.html()).toContain('container section');
   });
 
   it('it should have a div element with class="container"', () => {
-    expect(showsWrapper.attributes('class')).toBe('container');
+    expect(showsWrapper.attributes('class')).toContain('container section');
   });
 
   it('it should redirect to the all shows page', ()=>{

@@ -1,10 +1,10 @@
-.textleft {
+.text-left {
   text-align: left;
 }
-.pt30 {
+.pt-30 {
   padding-top: 30px;
 }
-.notfound {
+.not-found {
   height: 15em;
   display: flex;
   align-items: center;
@@ -45,16 +45,16 @@
 .star:after {
   transform: rotate(35deg);
 }
-.fs12 {
+.fs-12 {
   font-size: 12px;
 }
 .bg {
   background: #0000ff0d;
 }
-.mt20 {
+.mt-20 {
   margin-top: 20px;
 }
-.backtohome {
+.back-to-home {
   color: white;
   cursor: pointer;
   padding: 6px 10px 6px 10px;
@@ -62,12 +62,12 @@
   font-size: 13px;
   background: #1959a1;
 }
-.genrename {
+.genre-name {
   border-bottom: 3px solid #1834f7;
   font-weight: bold;
   padding-bottom: 4px;
 }
-.showimageheight {
+.show-image-height {
   height: 200px !important;
   width: 100%;
   cursor: pointer;
@@ -75,27 +75,27 @@
 .fs11 {
 	font-size: 11px;
 }
-.showname {
+.show-name {
   font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.shownamedata {
+.show-name-data {
   font-size: 18px;
   font-weight: bold;
   color: #1959a1;
 }
-.textright {
+.text-right {
   text-align: right;
 }
-.mb20 {
+.mb-20 {
   margin-bottom: 20px;
 }
-.mt10 {
+.mt-10 {
 	margin-top: 10px;
 }
-.mb30 {
+.mb-30 {
   margin-bottom: 30px;
 }
 .episode {
@@ -103,18 +103,18 @@
   font-weight: bold;
   font-size: 30px;
 }
-.eachepisode {
+.each-episode {
   border-bottom: 1px solid #80808047;
   margin-top: 30px;
 }
-.eachepisode img {
+.each-episode img {
   margin-bottom: 30px;
 }
 .sections {
   border-bottom: 1px solid #80808040;
   padding-top: 30px;
 }
-.episodename {
+.episode-name {
   text-align: left;
   font-size: 20px;
   font-weight: bold;
@@ -123,30 +123,30 @@
 .fs13 {
   font-size: 13px;
 }
-.mt50 {
+.mt-50 {
   margin-top: 50px;
 }
-.pt50 {
+.pt-50 {
   padding-top: 50px;
 }
-.showlabel {
+.show-label {
   color: #0c53ab;
   font-weight: bold;
 }
-.fs14 {
+.fs-14 {
   font-size: 14px;
 }
 .oops {
   font-size: 30px;
   height: 16em !important;
 }
-.pt5 {
-  padding-top: 5px;
+.pt-5 {
+  padding-top: 5px !important;
 }
-.pb5 {
-  padding-bottom: 5px
+.pb-5 {
+  padding-bottom: 5px !important;
 }
-.headerbg {
+.header-bg {
   background: #1959a1;
   color: white;
 }
@@ -156,42 +156,42 @@
 .pb3 {
   padding-bottom: 3px
 }
-.footerclass {
+.footer-class {
   font-size: 15px;
 }
-.fontbold {
+.font-bold {
 	font-weight: bold;
 }
-.heigth200 {
+.height-200 {
 	height: 200px;
 }
 @media (min-width: 320px) and (max-width: 575px) {
-	.headertitle, .search {
+	.header-title, .search {
 		text-align: center !important;
 	}
-	.rightcarousel{
+	.right-carousel{
     right: -14px !important;
     display: none !important;
 	}
-	.leftcarousel {
+	.left-carousel {
 		left: -14px !important;
 		display: none !important;
 	}
-	.shownamedata {
+	.show-name-data {
 		text-align: center;
 	}
-	.backshowdetails {
+	.back-show-details {
 		margin-bottom: 20px;
 	}
 	.episode {
     font-size: 20px !important;
 	}
-	.episodeimagecenter {
+	.episode-image-center {
 		text-align: center;
 	}
 }
 @media (min-width: 576px) and (max-width: 767px) {
-	.episodeimage {
+	.episode-image {
 		width: 108% !important;
 	}
 }

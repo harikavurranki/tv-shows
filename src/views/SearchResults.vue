@@ -1,11 +1,11 @@
 <template>
-  <div class="container pt30">
+  <div class="container pt-30">
     <TopViewComponent :name="'Search results'"></TopViewComponent>
-    <div v-if="searchResults.length === 0" class="oops notfound">
-      <span>OOPS details not found for  <span class="backtohome"> {{$route.query.name}}</span>. Please click on <span class="backtohome" @click="redirect">Home</span></span>
+    <div v-if="searchResults.length === 0" class="oops not-found">
+      <span>OOPS details not found for  <span class="back-to-home"> {{$route.query.name}}</span>. Please click on <span class="back-to-home" @click="redirect">Home</span></span>
     </div>
     <div class="row">
-      <div v-for="(search, index) in searchResults" :key="index" class="col-lg-2 col-md-3 col-sm-3 col-6 mt20" @click="getShowId(search.show)">
+      <div v-for="(search, index) in searchResults" :key="index" class="col-lg-2 col-md-3 col-sm-3 col-6 mt-20" @click="getShowId(search.show)">
         <ImageComponent :cardData="{image: search.show.image, rating: search.show.rating, showName: search.show.name}"></ImageComponent>
       </div>
     </div>
