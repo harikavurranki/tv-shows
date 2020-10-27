@@ -85,11 +85,11 @@ describe('Details of the particular show', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(showDetailsWrapper.html()).toContain('container pt50');
+    expect(showDetailsWrapper.html()).toContain('container pt-50');
   });
 
-  it('it should have a div element with class="container pt50"', () => {
-    expect(showDetailsWrapper.attributes('class')).toBe('container pt50');
+  it('it should have a div element with class="container pt-50"', () => {
+    expect(showDetailsWrapper.attributes('class')).toBe('container pt-50');
   });
   it('it should redirect to the dashboard', ()=>{
     showDetailsWrapper.vm.redirect()

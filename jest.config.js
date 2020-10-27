@@ -8,8 +8,7 @@ module.exports = {
     '!**/vendor/**',
     '!**/tests/e2e/**',
     '!**/main.js',
-    '!**/registerServiceWorker.js',
-    '!**/coverage/**',
+    '!**/coverage/**'
   ],
   coverageThreshold: {
     global: {

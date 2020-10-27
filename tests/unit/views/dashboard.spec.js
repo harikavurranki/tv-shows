@@ -84,10 +84,10 @@ describe('Dashboard', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(dashboardWrapper.html()).toContain('pt30');
+    expect(dashboardWrapper.html()).toContain('pt-30');
   });
 
   it('it should have a div element with id="app"', () => {
-    expect(dashboardWrapper.attributes('class')).toBe('pt30');
+    expect(dashboardWrapper.attributes('class')).toBe('pt-30');
   });
 });

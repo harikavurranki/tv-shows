@@ -72,9 +72,7 @@ export const actions = {
     router.push('/showdetails')
   }
 }
-export const modules = {}
 const store = new Vuex.Store({
-  modules,
   mutations,
   actions,
   state

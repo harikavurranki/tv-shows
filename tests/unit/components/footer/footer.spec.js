@@ -18,11 +18,11 @@ describe('TV shows footer', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(footerWrapper.html()).toContain('<div class="headerbg pt3 pb3">');
+    expect(footerWrapper.html()).toContain('<div class="header-bg pt-3 pb-3">');
   });
 
-  it('it should have a div element with class="headerbg pt3 pb3"', () => {
-    expect(footerWrapper.attributes('class')).toBe('headerbg pt3 pb3');
+  it('it should have a div element with class="header-bg pt-3 pb-3"', () => {
+    expect(footerWrapper.attributes('class')).toBe('header-bg pt-3 pb-3');
   });
   it('it should have 2020 © Shows hub. All rights reserved.', () => {
     expect(footerWrapper.text()).toMatch('2020 © Shows hub. All rights reserved.')

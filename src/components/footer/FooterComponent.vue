@@ -1,5 +1,5 @@
 <template>
-  <div class="header-bg pt3 pb3">
+  <div class="header-bg pt-3 pb-3">
     <div class="container footer-class">
       2020 © Shows hub. All rights reserved.
     </div>

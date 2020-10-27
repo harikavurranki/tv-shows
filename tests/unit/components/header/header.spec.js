@@ -41,10 +41,10 @@ describe('TV shows header', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(headerWrapper.html()).toContain('<div class="headerbg pt5 pb5">');
+    expect(headerWrapper.html()).toContain('<div class="header-bg pt-5 pb-5">');
   });
-  it('it should have a div element with class="headerbg pt5 pb5"', () => {
-    expect(headerWrapper.attributes('class')).toBe('headerbg pt5 pb5');
+  it('it should have a div element with class="header-bg pt-5 pb-5"', () => {
+    expect(headerWrapper.attributes('class')).toBe('header-bg pt-5 pb-5');
   });
   it('it should call the funtion after that need to check the route', ()=>{
     headerWrapper.vm.getDataBySearch()

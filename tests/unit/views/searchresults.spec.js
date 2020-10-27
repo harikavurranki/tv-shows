@@ -89,11 +89,11 @@ describe('TV shows search results', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(searchWrapper.html()).toContain('<div class="container pt30">');
+    expect(searchWrapper.html()).toContain('<div class="container pt-30">');
   });
 
-  it('it should have a div element with id="container pt30"', () => {
-    expect(searchWrapper.attributes('class')).toBe('container pt30');
+  it('it should have a div element with id="container pt-30"', () => {
+    expect(searchWrapper.attributes('class')).toBe('container pt-30');
   });
   it('it should redirect to the dashboard', ()=>{
     searchWrapper.vm.redirect()

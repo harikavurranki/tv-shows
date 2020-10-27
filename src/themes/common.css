@@ -72,7 +72,7 @@
   width: 100%;
   cursor: pointer;
 }
-.fs11 {
+.fs-11 {
 	font-size: 11px;
 }
 .show-name {
@@ -120,7 +120,7 @@
   font-weight: bold;
   color: #1959a1;
 }
-.fs13 {
+.fs-13 {
   font-size: 13px;
 }
 .mt-50 {
@@ -150,10 +150,10 @@
   background: #1959a1;
   color: white;
 }
-.pt3 {
+.pt-3 {
   padding-top: 3px;
 }
-.pb3 {
+.pb-3 {
   padding-bottom: 3px
 }
 .footer-class {

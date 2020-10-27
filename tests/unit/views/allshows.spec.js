@@ -86,10 +86,10 @@ describe('All the shows related to genre', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(showsListWrapper.html()).toContain('container pt30');
+    expect(showsListWrapper.html()).toContain('container pt-30');
   });
 
   it('it should have a div element with id="app"', () => {
-    expect(showsListWrapper.attributes('class')).toBe('container pt30');
+    expect(showsListWrapper.attributes('class')).toBe('container pt-30');
   });
 });
